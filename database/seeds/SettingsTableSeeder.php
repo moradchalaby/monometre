@@ -107,7 +107,7 @@ class SettingsTableSeeder extends Seeder
                     'settings_description'=> 'Açık Adres',
                     'settings_key'=>'adres',
                     'settings_value'=>'Safa mahllesi, Tayyar sokak no:7',
-                    'settings_type'=> 'text',
+                    'settings_type'=> 'textarea',
                     'settings_must'=>10,
                     'settings_delete'=> '0',
                     'settings_status'=> '1'

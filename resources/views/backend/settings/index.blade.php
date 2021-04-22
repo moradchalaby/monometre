@@ -24,18 +24,30 @@ Settings
 
                    </th>
                </tr>
-               <tbody>
+               <tbody id="sortable">
                @foreach($data['adminSettings'] as $adminSettings)
-               <tr>
+               <tr id="item-{{$adminSettings->id}}">
                    <td>{{$adminSettings->id}}</td>
-                   <td>{{$adminSettings['settings_description']}}</td>
-                   <td>{{$adminSettings->settings_value}}</td>
+                   <td class="sortable">{{$adminSettings['settings_description']}}</td>
+                <td>
+                     @if ($adminSettings['settings_type'] == "file")
+
+                <img class="img-thumbnail" width="25"  src="/images/settings/{{$adminSettings['settings_value']}}">
+
+       @else
+
+                {{$adminSettings['settings_value']}}
+
+       @endif
+    </td>
                    <td>{{$adminSettings->settings_key}}</td>
                    <td>{{$adminSettings->settings_type}}</td>
-                   <td width="5"><a href="javascript:void(0)"><i class="fa fa-pencil-square"></i></a>
+                   <td width="5"><a href="{{route('settings.Edit',['id'=> $adminSettings->id])}}"><i class="fa fa-pencil-square"></i></a>
                        </td>
-                   <td width="5"><a href="javascript:void(0)"><i class="fa fa-trash-o"></i></a></td>
-               </tr>
+                       @if ($adminSettings->settings_delete)
+                   <td width="5"><a href="javascript:void(0)"><i id="@php  echo $adminSettings->id  @endphp" class="fa fa-trash-o"></i></a></td>
+              @endif
+                </tr>
                @endforeach
                </tbody>
                </thead>
@@ -43,6 +55,58 @@ Settings
        </div>
    </div>
 </section>
+
+
+    <script type="text/javascript">
+    //? AJAX
+        $(function(){
+
+            $.ajaxSetup({
+                headers:{
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $('#sortable').sortable({
+                revert: true,
+                handle: ".sortable",
+                stop: function (event, ui) {
+                    var data = $(this).sortable('serialize');
+                    $.ajax({
+                        type: "POST",
+                        data: data,
+                        url: "{{route('settings.Sortable')}}",
+                        success: function (msg) {
+                            // console.log(msg);
+                            if (msg) {
+                                alertify.success("İşlem başarılı");
+                            } else {
+                                alertify.error("İşlem başarısız");
+                            }
+                        }
+                    });
+
+                }
+            });
+            $('#sortable').disableSelection();
+
+        });
+
+
+        $(".fa-trash-o").click(function () {
+            destroy_id=$(this).attr('id');
+
+            alertify.confirm('Silme işlemini onaylayın!', 'Bu işlem geri alınamaz',
+            function () {
+                location.href="/nedmin/settings/delete/"+destroy_id;
+            },
+            function () {
+               alertify.error('Silme işlemi iptal edildi');
+            }
+            );
+        })
+    </script>
+
 
 @endsection
 
