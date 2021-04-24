@@ -63,3 +63,12 @@ sonra databaseseeder.php ye bu seedere ekle
 php artisan db:seed --class=PagesTabelSeeder
 
 ile de verileri içeri aktarıyoruz
+php artisan migrate:fresh --seed
+bütün tabloları varsayılan yapıyor
+
+
+
+
+php artisan make:middleware Admin
+
+ara katman oluşturuyoe yani izinsiz giriş engelleyici

@@ -35,7 +35,7 @@ class SettingsTableSeeder extends Seeder
                 [
                     'settings_description'=> 'Logo',
                     'settings_key'=>'logo',
-                    'settings_value'=>'logo.png',
+                    'settings_value'=> '608337958c03c.png',
                     'settings_type'=> 'file',
                     'settings_must'=>2,
                     'settings_delete'=> '0',
@@ -44,7 +44,7 @@ class SettingsTableSeeder extends Seeder
                 [
                     'settings_description'=> 'Icon',
                     'settings_key'=>'icon',
-                    'settings_value'=>'icon.ico',
+                    'settings_value'=> '6082093d1729f.png',
                     'settings_type'=> 'file',
                     'settings_must'=>3,
                     'settings_delete'=> '0',

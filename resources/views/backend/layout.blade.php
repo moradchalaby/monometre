@@ -23,32 +23,33 @@ scratch. This page gets rid of all links and provides the needed markup only.
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
     <link rel="stylesheet" href="/backend/dist/css/skins/skin-blue.min.css">
-       <!-- jQuery 3 -->
+    <!-- jQuery 3 -->
     <script src="/backend/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="/backend/bower_components/jquery-ui/jquery-ui.js"></script>
     <!-- Bootstrap 3.3.7 -->
     <script src="/backend/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- AdminLTE App -->
     <script src="/backend/dist/js/adminlte.min.js"></script>
-<!--// ALERTİFY -->
+    <!--// ALERTİFY -->
 
-<script src="/backend/bower_components/alertify/alertify.min.js"></script>
-<link rel="stylesheet" href="/backend/dist/css/alertify/alertify.min.css">
-<link rel="stylesheet" href="/backend/dist/css/alertify/themes/default.min.css">
-<link rel="stylesheet" href="/backend/dist/css/alertify/themes/semantic.min.css">
-<link rel="stylesheet" href="/backend/dist/css/alertify/themes/bootstrap.min.css">
+    <script src="/backend/bower_components/alertify/alertify.min.js"></script>
+    <link rel="stylesheet" href="/backend/dist/css/alertify/alertify.min.css">
+    <link rel="stylesheet" href="/backend/dist/css/alertify/themes/default.min.css">
+    <link rel="stylesheet" href="/backend/dist/css/alertify/themes/semantic.min.css">
+    <link rel="stylesheet" href="/backend/dist/css/alertify/themes/bootstrap.min.css">
 
-<script src="/backend/bower_components/ckeditor/ckeditor.js"></script>
-<!-- Alertify son ->
+    <script src="/backend/bower_components/ckeditor/ckeditor.js"></script>
+    <!-- Alertify son ->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-<link rel="stylesheet" href="/backend/custom/css/custom.css">
+    <link rel="stylesheet" href="/backend/custom/css/custom.css">
     <!-- Google Font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -78,7 +79,7 @@ desired effect
         <header class="main-header">
 
             <!-- Logo -->
-            <a href="index2.html" class="logo">
+            <a href="{{route('nedmin.Index')}}" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>MM</b>Y</span>
                 <!-- logo for regular state and mobile devices -->
@@ -103,29 +104,30 @@ desired effect
                             <!-- Menu Toggle Button -->
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <!-- The user image in the navbar-->
-                                <img src="/backend/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                                <img src="/images/users/{{Auth::user()->user_file}}" class="user-image" alt="User Image">
                                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                                <span class="hidden-xs">Alexander Pierce</span>
+                                <span class="hidden-xs">{{Auth::user()->name}}</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- The user image in the menu -->
                                 <li class="user-header">
-                                    <img src="/backend/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                    <img src="/images/users/{{Auth::user()->user_file}}" class="img-circle" alt="User Image">
 
                                     <p>
-                                        Alexander Pierce - Web Developer
+                                        {{Auth::user()->name}} - Yönetici
 
                                     </p>
+
                                 </li>
                                 <!-- Menu Body -->
 
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                        <a href="{{route('user.edit',Auth::user()->id)}}" class="btn btn-default btn-flat">Profili Düzenle</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="#" class="btn btn-default btn-flat">Çıkış</a>
+                                        <a href="{{route('nedmin.Logout')}}" class="btn btn-default btn-flat">Çıkış</a>
                                     </div>
                                 </li>
                             </ul>
@@ -145,10 +147,11 @@ desired effect
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel">
                     <div class="pull-left image">
-                        <img src="/backend/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                        <img src="/images/users/{{Auth::user()->user_file}}" class="img-circle" alt="User Image">
                     </div>
                     <div class="pull-left info">
-                        <p>Alexander Pierce</p>
+                        <p>{{Auth::user()->name}}</p>
+                         <p>Yönetici</p>
                         <!-- Status -->
 
                     </div>
@@ -157,26 +160,27 @@ desired effect
 
 
                 <!-- Sidebar Menu -->
-                <ul class="sidebar-menu" data-widget="tree">
+                <ul class="sidebar-menu" id="menulist" data-widget="tree">
                     <li class="header">MENULER</li>
                     <!-- Optionally, you can add icons to the links -->
-                    <li class="active"><a href="{{route('nedmin.Index')}}"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
-                    <li><a href="{{route('settings.Index')}}"><i class="fa fa-cog"></i> <span>Ayarlar</span></a></li>
-<li><a href="{{route('blog.index')}}"><i class="fa fa-file"></i> <span>Bloglar</span></a></li>
-<li><a href="{{route('page.index')}}"><i class="fa fa-file"></i> <span>Sayfalar</span></a></li>
-<li><a href="{{route('slider.index')}}"><i class="fa fa-file"></i> <span>Slider</span></a></li>
+                    <li class=""><a href="{{ route('nedmin.Index') }}"><i class="fa fa-link"></i>
+                            <span>Dashboard</span></a></li>
+                    <li><a href="{{ route('blog.index') }}"><i class="fa fa-share-alt"></i> <span>Bloglar</span></a>
+                    </li>
+                    <li><a href="{{ route('page.index') }}"><i class="fa fa-file"></i> <span>Sayfalar</span></a></li>
+                    <li><a href="{{ route('slider.index') }}"><i class="fa fa-image"></i> <span>Slider</span></a></li>
 
-                    <!--li class="treeview">
-                        <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
+                    <li class="treeview active">
+                        <a href="#"><i class="fa fa-link"></i> <span>Yönetim</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="#">Link in level 2</a></li>
-                            <li><a href="#">Link in level 2</a></li>
+                    <li><a href="{{ route('settings.Index') }}"><i class="fa fa-cog"></i> <span>Ayarlar</span></a></li>
+                    <li><a href="{{ route('user.index') }}"><i class="fa fa-user"></i> <span>Kullanıcılar</span></a></li>
                         </ul>
-                    </li!-->
+                    </li>
                 </ul>
                 <!-- /.sidebar-menu -->
             </section>
@@ -227,22 +231,42 @@ desired effect
      Both of these plugins are recommended to enhance the
      user experience. -->
 
-     @if(session()->has('success'))
-     <script>
-     alertify.success('{{session('success')}}');
-     </script>
-     @endif
-@if(session()->has('error'))
-     <script >alertify.error('{{session('error')}}');
-    </script>
-     @endif
+    @if (session()->has('success'))
+        <script>
+            alertify.success('{{ session('success') }}');
 
-     @foreach ($errors->all() as $error)
-     <script>
-         alertify.error('{{$error}}');
-     </script>
+        </script>
+    @endif
+    @if (session()->has('error'))
+        <script>
+            alertify.error('{{ session('error') }}');
 
-     @endforeach
+        </script>
+    @endif
+
+    @foreach ($errors->all() as $error)
+        <script>
+            var metin = '{{ $error }}';
+            var pass = metin.indexOf('password');
+            var username = metin.indexOf('username');
+            var email = metin.indexOf('email');
+            var name = metin.indexOf('name');
+            if (pass != -1) {
+                alertify.error('{{ str_ireplace('password', 'Şifre', $error) }}');
+            } else if (username != -1) {
+                alertify.error('{{ str_ireplace('username', 'Kullanıcı Adı', $error) }}');
+            }  else if (email != -1) {
+                alertify.error('{{ str_ireplace('email', 'E-Mail', $error) }}');
+            } else if (name != -1) {
+                alertify.error('{{ str_ireplace('name', 'Ad Soyad', $error) }}');
+            }else {
+                alertify.error('{{ $error }}');
+            }
+
+        </script>
+
+    @endforeach
+
 </body>
 
 </html>

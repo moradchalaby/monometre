@@ -25,7 +25,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas metus et ma
                 [
                     'blog_title' => 'Blog Title 01',
                     'blog_slug' => 'blog-title-01',
-                    'blog_file' => null,
+                    'blog_file' => '60837c51a1190.png',
                     'blog_must' => 1,
                     'blog_content' => $lorem,
                     'blog_status' => '1'
@@ -33,7 +33,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas metus et ma
                 [
                     'blog_title' => 'Blog Title 02',
                     'blog_slug' => 'blog-title-02',
-                    'blog_file' => null,
+                    'blog_file' => '60837c497599a.png',
                     'blog_must' => 2,
                     'blog_content' => $lorem,
                     'blog_status' => '1'
@@ -41,7 +41,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas metus et ma
                 [
                     'blog_title' => 'Blog Title 03',
                     'blog_slug' => 'blog-title-03',
-                    'blog_file' => null,
+                    'blog_file' => '60837f846c4bb.png',
                     'blog_must' => 3,
                     'blog_content' => $lorem,
                     'blog_status' => '1'
@@ -49,7 +49,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas metus et ma
                 [
                     'blog_title' => 'Blog Title 04',
                     'blog_slug' => 'blog-title-04',
-                    'blog_file' => null,
+                    'blog_file' => '6083801c3e467.png',
                     'blog_must' => 4,
                     'blog_content' => $lorem,
                     'blog_status' => '1'

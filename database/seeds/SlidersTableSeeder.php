@@ -29,7 +29,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas metus et ma
                 [
                     'slider_title' => 'Slider Title 01',
                     'slider_slug' => 'slider-title-01',
-                    'slider_file' => null,
+                    'slider_file' => '60837c51a1190.png',
                     'slider_must' => 1,
                     'slider_content' => $lorem,
                     'slider_status' => '1'
@@ -37,7 +37,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas metus et ma
                 [
                     'slider_title' => 'Slider Title 02',
                     'slider_slug' => 'slider-title-02',
-                    'slider_file' => null,
+                    'slider_file' => '60837c497599a.png',
                     'slider_must' => 2,
                     'slider_content' => $lorem,
                     'slider_status' => '1'
@@ -45,7 +45,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas metus et ma
                 [
                     'slider_title' => 'Slider Title 03',
                     'slider_slug' => 'slider-title-03',
-                    'slider_file' => null,
+                    'slider_file' => '60837f846c4bb.png',
                     'slider_must' => 3,
                     'slider_content' => $lorem,
                     'slider_status' => '1'
@@ -53,7 +53,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas metus et ma
                 [
                     'slider_title' => 'Slider Title 04',
                     'slider_slug' => 'slider-title-04',
-                    'slider_file' => null,
+                    'slider_file' => '6083801c3e467.png',
                     'slider_must' => 4,
                     'slider_content' => $lorem,
                     'slider_status' => '1'
