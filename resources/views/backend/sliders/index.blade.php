@@ -6,53 +6,41 @@
    <div class="box box-primary">
        <div class="box-header with-border">
            <h3 class="box-title">
-Settings
+Sliderlar
            </h3>
+           <div align="right">
+               <a href="{{route('slider.create')}}" class="btn btn-success">Yeni Ekle</a>
+           </div>
        </div>
        <div class="box-body">
-           <table class="table table-striped">
+           <table id="tablem" class="table table-striped">
                <thead>
                <tr>
-                   <th>Id</th>
+<th>Görsel</th>
                    <th>
-                       Açıklama
+                       Başlık
                    </th>
-                   <th>İçerik</th>
-                   <th>Anahtar Değer</th>
-                   <th>Type</th>
                    <th>
 
                    </th>
                </tr>
                <tbody id="sortable">
-               @foreach($data['adminSettings'] as $adminSettings)
-               <tr id="item-{{$adminSettings->id}}">
-                   <td>{{$adminSettings->id}}</td>
-                   <td class="sortable">{{$adminSettings['settings_description']}}</td>
-                <td>
-                     @if ($adminSettings['settings_type'] == "file")
+               @foreach($data['slider'] as $slider)
+               <tr id="item-{{$slider->id}}">
+<td  width="150" class="sortable"><img class="img-thumbnail" width="150"  src="/images/sliders/{{$slider->slider_file}}"></td>
+                   <td >{{$slider['slider_title']}}</td>
 
-                <img class="img-thumbnail" width="100"  src="/images/settings/{{$adminSettings['settings_value']}}">
-
-       @else
-       @php  @endphp
-
-                {{$adminSettings['settings_value']}}
-
-       @endif
-    </td>
-                   <td>{{$adminSettings->settings_key}}</td>
-                   <td>{{$adminSettings->settings_type}}</td>
-                   <td width="5"><a href="{{route('settings.Edit',['id'=> $adminSettings->id])}}"><i class="fa fa-pencil-square"></i></a>
+                   <td width="5"><a href="{{route('slider.edit',$slider->id)}}"><i class="fa fa-pencil-square"></i></a>
                        </td>
-                       @if ($adminSettings->settings_delete)
-                   <td width="5"><a href="javascript:void(0)"><i id="@php  echo $adminSettings->id  @endphp" class="fa fa-trash-o"></i></a></td>
-              @endif
+
+                   <td width="5"><a href="javascript:void(0)"><i id="@php  echo $slider->id  @endphp" class="fa fa-trash-o"></i></a></td>
+
                 </tr>
-              
+
                @endforeach
                </tbody>
                </thead>
+
            </table>
        </div>
    </div>
@@ -74,14 +62,16 @@ Settings
                 handle: ".sortable",
                 stop: function (event, ui) {
                     var data = $(this).sortable('serialize');
+
                     $.ajax({
                         type: "POST",
                         data: data,
-                        url: "{{route('settings.Sortable')}}",
+                        url: "{{route('slider.Sortable')}}",
                         success: function (msg) {
                             // console.log(msg);
                             if (msg) {
                                 alertify.success("İşlem başarılı");
+
                             } else {
                                 alertify.error("İşlem başarısız");
                             }
@@ -100,7 +90,20 @@ Settings
 
             alertify.confirm('Silme işlemini onaylayın!', 'Bu işlem geri alınamaz',
             function () {
-                location.href="/nedmin/settings/delete/"+destroy_id;
+                $.ajax({
+                    type:"DELETE",
+                    url:"slider/"+destroy_id,
+                    success: function (msg) {
+                            // console.log(msg);
+                            if (msg) {
+                                $("#item-"+destroy_id).remove();
+                                alertify.success("Silme İşlemi Başarılı");
+
+                            } else {
+                                alertify.error("Silme İşlemi Başarısız");
+                            }
+                        }
+                });
             },
             function () {
                alertify.error('Silme işlemi iptal edildi');

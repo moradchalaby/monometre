@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Blogs;
+use App\Pages;
 use Illuminate\Support\Str;
 
 
-class BlogController extends Controller
+class PageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +18,8 @@ class BlogController extends Controller
     public function index()
     {
         //
-        $data['blog']=Blogs::all()->sortBy('blog_must');
-        return view('backend.blogs.index', compact('data'));
+        $data['page']=Pages::all()->sortBy('page_must');
+        return view('backend.pages.index', compact('data'));
     }
 
     /**
@@ -30,7 +30,7 @@ class BlogController extends Controller
     public function create()
     {
         //
-        return view('backend.blogs.create');
+        return view('backend.pages.create');
     }
 
     /**
@@ -43,24 +43,24 @@ class BlogController extends Controller
     {
         //
         $request->validate([
-            'blog_title' => 'required',
-            'blog_content' => 'required'
+            'page_title' => 'required',
+            'page_content' => 'required'
         ]);
-        if (strlen($request->blog_slug)>3) {
+        if (strlen($request->page_slug)>3) {
 
-            $slug=Str::slug($request->blog_slug);
+            $slug=Str::slug($request->page_slug);
         }else {
-            $slug = Str::slug($request->blog_title);
+            $slug = Str::slug($request->page_title);
         }
 
 
-        if ($request->hasFile('blog_file')) {
+        if ($request->hasFile('page_file')) {
             $request->validate([
-                'blog_file'=>'required|image|mimes:jpg,jpeg,png|max:2048'
+                'page_file'=>'required|image|mimes:jpg,jpeg,png|max:2048'
             ]);
 
-            $file_name=uniqid().'.'.$request->blog_file->getClientOriginalExtension();//benzersiz isim oluşturma
-            $request->blog_file->move(public_path('images/blogs'),$file_name);
+            $file_name=uniqid().'.'.$request->page_file->getClientOriginalExtension();//benzersiz isim oluşturma
+            $request->page_file->move(public_path('images/pages'),$file_name);
             # code...
         }else {
             $file_name=null;
@@ -68,15 +68,15 @@ class BlogController extends Controller
 
 
 
-        $blog=Blogs::insert([
-            "blog_title"=> $request->blog_title,
-            "blog_slug" => $slug,
-            "blog_file" => $file_name,
-            "blog_content" => $request->blog_content,
-            "blog_status" => $request->blog_status
+        $page=Pages::insert([
+            "page_title"=> $request->page_title,
+            "page_slug" => $slug,
+            "page_file" => $file_name,
+            "page_content" => $request->page_content,
+            "page_status" => $request->page_status
         ]);
-        if ($blog) {
-            return redirect(route('blog.index'))->with('success', 'Kayıt İşlemi Başarılı');
+        if ($page) {
+            return redirect(route('page.index'))->with('success', 'Kayıt İşlemi Başarılı');
             # code...
         }
         return back()->with('error', 'Kayıt İşlemi Başarısız');
@@ -101,8 +101,8 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
-        $blogs = Blogs::where('id', $id)->first();
-        return view('backend.blogs.edit')->with('blogs', $blogs);
+        $pages = Pages::where('id', $id)->first();
+        return view('backend.pages.edit')->with('pages', $pages);
     }
 
     /**
@@ -116,25 +116,25 @@ class BlogController extends Controller
     {
 
         $request->validate([
-            'blog_title' => 'required',
-            'blog_content' => 'required'
+            'page_title' => 'required',
+            'page_content' => 'required'
         ]);
-        if (strlen($request->blog_slug) > 3) {
+        if (strlen($request->page_slug) > 3) {
 
-            $slug = Str::slug($request->blog_slug);
+            $slug = Str::slug($request->page_slug);
         } else {
-            $slug = Str::slug($request->blog_title);
+            $slug = Str::slug($request->page_title);
         }
 
 
-        if ($request->hasFile('blog_file')) {
+        if ($request->hasFile('page_file')) {
             $request->validate([
-                'blog_file' => 'required|image|mimes:jpg,jpeg,png|max:2048'
+                'page_file' => 'required|image|mimes:jpg,jpeg,png|max:2048'
             ]);
 
-            $file_name = uniqid() . '.' . $request->blog_file->getClientOriginalExtension(); //benzersiz isim oluşturma
-            $request->blog_file->move(public_path('images/blogs'), $file_name);
-            $path='images/blogs/'.$request->old_file;
+            $file_name = uniqid() . '.' . $request->page_file->getClientOriginalExtension(); //benzersiz isim oluşturma
+            $request->page_file->move(public_path('images/pages'), $file_name);
+            $path='images/pages/'.$request->old_file;
             if (file_exists($path)) {
                @unlink(public_path($path));
             }
@@ -144,14 +144,14 @@ class BlogController extends Controller
 
 
 
-        $blog = Blogs::where('id',$id)->update([
-            "blog_title" => $request->blog_title,
-            "blog_slug" => $slug,
-            "blog_file" => $file_name,
-            "blog_content" => $request->blog_content,
-            "blog_status" => $request->blog_status
+        $page = Pages::where('id',$id)->update([
+            "page_title" => $request->page_title,
+            "page_slug" => $slug,
+            "page_file" => $file_name,
+            "page_content" => $request->page_content,
+            "page_status" => $request->page_status
         ]);
-        if ($blog) {
+        if ($page) {
             return back()->with('success', 'Kayıt İşlemi Başarılı');
             # code...
         }
@@ -167,8 +167,8 @@ class BlogController extends Controller
     public function destroy($id)
     {
         //
-        $blog = Blogs::find(intval($id));
-        if ($blog->delete()) {
+        $page = Pages::find(intval($id));
+        if ($page->delete()) {
 echo 1;
         }
         echo 0;
@@ -181,9 +181,9 @@ echo 1;
     {
         //    print_r($_POST['item']);
         foreach ($_POST['item'] as $key => $value) {
-            $blogs = Blogs::find(intval($value));
-            $blogs->blog_must = intval($key);
-            $blogs->save();
+            $pages = Pages::find(intval($value));
+            $pages->page_must = intval($key);
+            $pages->save();
         }
         echo true;
     }

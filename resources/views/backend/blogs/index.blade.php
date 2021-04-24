@@ -6,7 +6,7 @@
    <div class="box box-primary">
        <div class="box-header with-border">
            <h3 class="box-title">
-Settings
+Bloglar
            </h3>
            <div align="right">
                <a href="{{route('blog.create')}}" class="btn btn-success">Yeni Ekle</a>
@@ -30,7 +30,7 @@ Settings
 
                    <td class="sortable">{{$blog['blog_title']}}</td>
 
-                   <td width="5"><a href="{{route('settings.Edit',['id'=> $blog->id])}}"><i class="fa fa-pencil-square"></i></a>
+                   <td width="5"><a href="{{route('blog.edit',$blog->id)}}"><i class="fa fa-pencil-square"></i></a>
                        </td>
 
                    <td width="5"><a href="javascript:void(0)"><i id="@php  echo $blog->id  @endphp" class="fa fa-trash-o"></i></a></td>

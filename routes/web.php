@@ -59,8 +59,17 @@ Route::namespace('Backend')->group(function () {
 
 Route::namespace('Backend')->group(function () {
     Route::prefix('nedmin')->group(function () {
-        Route::post('sortable', 'BlogController@sortable')->name('blog.Sortable');
-
+        //BLOG
+        Route::post('/blog/sortable', 'BlogController@sortable')->name('blog.Sortable');
         Route:: resource('blog', 'BlogController');
+
+
+        //PAGE
+        Route::post('/page/sortable', 'PageController@sortable')->name('page.Sortable');
+        Route::resource('page', 'PageController');
+
+        //SLIDER
+        Route::post('/slider/sortable', 'SliderController@sortable')->name('slider.Sortable');
+        Route::resource('slider', 'SliderController');
     });
 });

@@ -16,11 +16,11 @@ class CreateBlogsTable extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('blog_title');
+            $table->string('blog_title')->nullable();
             $table->string('blog_slug')->nullable();
             $table->string('blog_file')->nullable();
-            $table->integer('blog_must');
-            $table->text('blog_content');
+            $table->integer('blog_must')->nullable();
+            $table->text('blog_content')->nullable();
             $table->enum('blog_status',['0','1'])->default('1');
 
         });
