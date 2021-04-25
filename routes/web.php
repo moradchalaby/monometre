@@ -64,8 +64,15 @@ Route::namespace('Backend')->group(function () {
 Route::namespace('Frontend')->group(
     function () {
         Route::get('/', 'DefaultController@index')->name('home.Index');
+
+        //BLOG
         Route::get('/blog', 'BlogController@index')->name('blog.Index');
         Route::get('/blog/{slug}', 'BlogController@detail')->name('blog.Detail');
+
+        //PAGE
+
+        Route::get('/page/{slug}', 'PageController@detail')->name('page.Detail');
+
 
     }
 );

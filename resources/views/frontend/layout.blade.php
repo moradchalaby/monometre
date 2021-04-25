@@ -143,8 +143,15 @@
                                         <li class="nav-item"><a class="nav-link"
                                                 href="{{ route('blog.Index') }}">Blog</a></li>
 
-{{--
-                                        <li class="nav-item dropdown">
+
+@foreach ($slug as $page )
+
+
+                                                <li class="nav-item"><a class="nav-link"
+                                                href="/page/{{ $page->page_slug}}">{{$page->page_title}}</a></li>
+@endforeach
+
+                                                {{-- <li class="nav-item dropdown">
                                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Company
                                                 <i class="fa fa-angle-down"></i></a>
                                             <ul class="dropdown-menu" role="menu">
@@ -154,13 +161,12 @@
                                                 <li><a href="faq.html">Faq</a></li>
                                                 <li><a href="pricing.html">Pricing</a></li>
                                             </ul>
-                                        </li>
- --}}
+                                        </li> --}}
 
 
 
-{{--                                         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
- --}}                                    </ul>
+                                        {{-- <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li> --}}
+                                    </ul>
                                 </div>
                             </nav>
                         </div>
