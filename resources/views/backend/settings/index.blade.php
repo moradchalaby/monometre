@@ -43,13 +43,13 @@ Settings
     </td>
                    <td>{{$adminSettings->settings_key}}</td>
                    <td>{{$adminSettings->settings_type}}</td>
-                   <td width="5"><a href="{{route('settings.Edit',['id'=> $adminSettings->id])}}"><i class="fa fa-pencil-square"></i></a>
+                   <td width="5"><a href="{{route('settings.Edit',['id'=> $adminSettings->id])}}"><i class="fas fa-pencil-alt"></i></a>
                        </td>
                        @if ($adminSettings->settings_delete)
-                   <td width="5"><a href="javascript:void(0)"><i id="@php  echo $adminSettings->id  @endphp" class="fa fa-trash-o"></i></a></td>
+                   <td width="5"><a href="javascript:void(0)"><i id="@php  echo $adminSettings->id  @endphp" class="fas fa-trash-alt"></i></a></td>
               @endif
                 </tr>
-              
+
                @endforeach
                </tbody>
                </thead>

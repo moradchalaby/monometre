@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
+use App\User;
+
 class DefaultController extends Controller
 {
     public function index()
@@ -14,7 +17,13 @@ class DefaultController extends Controller
     }
     public function login()
     {
-        return view('backend.default.login');
+        $user=User::all()->first();
+        if ($user) {
+            return view('backend.default.login');
+        }else{
+            return view('backend.default.register');
+        }
+
     }
     public function authenticate(Request $request)
     {

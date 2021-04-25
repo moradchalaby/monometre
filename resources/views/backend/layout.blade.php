@@ -14,7 +14,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="/backend/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="/backend/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/backend/bower_components/font-awesome/css/all.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="/backend/bower_components/Ionicons/css/ionicons.min.css">
     <!-- Theme style -->
@@ -98,7 +98,6 @@ desired effect
                         <!-- Messages: style can be found in dropdown.less-->
 
 
-
                         <!-- User Account Menu -->
                         <li class="dropdown user user-menu">
                             <!-- Menu Toggle Button -->
@@ -169,7 +168,7 @@ desired effect
                     </li>
                     <li><a href="{{ route('page.index') }}"><i class="fa fa-file"></i> <span>Sayfalar</span></a></li>
                     <li><a href="{{ route('slider.index') }}"><i class="fa fa-image"></i> <span>Slider</span></a></li>
-
+<li><a href="{{ route('brand.index') }}"><i class="fab fa-laravel"></i>   <span>Markalar</span></a></li>
                     <li class="treeview active">
                         <a href="#"><i class="fa fa-link"></i> <span>Yönetim</span>
                             <span class="pull-right-container">

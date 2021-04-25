@@ -212,23 +212,23 @@ jQuery(function ($) {
 				dots: false,
 				infinite: false,
 				speed: 300,
-				slidesToShow: 4,
+				slidesToShow: 3,
 				slidesToScroll: 2,
 				arrows: true,
-				prevArrow: '<button type="button" class="carousel-control left" aria-label="carousel-control"><i class="fas fa-chevron-left"></i></button>',
+                prevArrow: '<button type="button" class="carousel-control left" aria-label="carousel-control"><i class="fas fa-chevron-left"></i></button>',
 				nextArrow: '<button type="button" class="carousel-control right" aria-label="carousel-control"><i class="fas fa-chevron-right"></i></button>',
 				responsive: [{
 						breakpoint: 992,
 						settings: {
-							slidesToShow: 3,
-							slidesToScroll: 3
+							slidesToShow: 2,
+							slidesToScroll: 1
 						}
 					},
 					{
 						breakpoint: 768,
 						settings: {
-							slidesToShow: 2,
-							slidesToScroll: 2
+							slidesToShow: 1,
+							slidesToScroll: 1
 						}
 					},
 					{
@@ -258,8 +258,15 @@ jQuery(function ($) {
 			});
 		}
 		mediaPopup();
+        $(document).ready(function logos() {
+
+            var logosrc = document.getElementById("logo").src;
+            $(".logo").attr("src", logosrc);
+
+        });
 
 	});
 
 
 });
+

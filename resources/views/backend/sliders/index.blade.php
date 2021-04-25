@@ -30,10 +30,10 @@ Sliderlar
 <td  width="150" class="sortable"><img class="img-thumbnail" width="150"  src="/images/sliders/{{$slider->slider_file}}"></td>
                    <td >{{$slider['slider_title']}}</td>
 
-                   <td width="5"><a href="{{route('slider.edit',$slider->id)}}"><i class="fa fa-pencil-square"></i></a>
+                   <td width="5"><a href="{{route('slider.edit',$slider->id)}}"><i class="fas fa-pencil-alt"></i></a>
                        </td>
 
-                   <td width="5"><a href="javascript:void(0)"><i id="@php  echo $slider->id  @endphp" class="fa fa-trash-o"></i></a></td>
+                   <td width="5"><a href="javascript:void(0)"><i id="@php  echo $slider->id  @endphp" class="fas fa-trash-alt"></i></a></td>
 
                 </tr>
 

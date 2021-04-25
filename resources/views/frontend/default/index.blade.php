@@ -110,66 +110,49 @@
   </div><!-- Container end -->
 </section><!-- Action end -->
 
-<section id="ts-features" class="ts-features">
+
+<section id="ts-team" class="ts-team">
   <div class="container">
+    <div class="row text-center">
+        <div class="col-12">
+          <h2 class="section-title">Blogmuş gibi</h2>
+          <h3 class="section-sub-title">Blog</h3>
+
+        </div>
+    </div>
+
     <div class="row">
+        <div class="col-lg-12">
+          <div id="team-slide" class="team-slide">
 
-
-        <div class="col-lg-12 mt-4 mt-lg-0">
-          <h3 class="into-sub-title text-center">Değerlerimiz</h3>
-          <p>Minim Austin 3 wolf moon scenester aesthetic, umami odio pariatur bitters. Pop-up occaecat taxidermy street art, tattooed beard literally.</p>
-
-          <div class="accordion accordion-group" id="our-values-accordion">
-              <div class="card">
-                <div class="card-header p-0 bg-transparent" id="headingOne">
-                    <h2 class="mb-0">
-                      <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                          Emniyet
-                      </button>
-                    </h2>
-                </div>
-
-                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#our-values-accordion">
-                    <div class="card-body">
-                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidata
+             @foreach ($data['blog'] as $blog )
+            <div class="item">
+                <a href="{{route('blog.Detail',$blog->blog_slug)}}">
+                <div class="ts-team-wrapper">
+                    <div class="team-img-wrapper">
+                      <img loading="lazy" class="w-100" src="/images/blogs/{{$blog->blog_file}}" alt="team-img">
                     </div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-header p-0 bg-transparent" id="headingTwo">
-                    <h2 class="mb-0">
-                      <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                          Müşteri Servisi
-                      </button>
-                    </h2>
-                </div>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#our-values-accordion">
-                    <div class="card-body">
-                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidata
-                    </div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-header p-0 bg-transparent" id="headingThree">
-                    <h2 class="mb-0">
-                      <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                          Bütünlük
-                      </button>
-                    </h2>
-                </div>
-                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#our-values-accordion">
-                    <div class="card-body">
-                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidata
-                    </div>
-                </div>
-              </div>
-          </div>
-          <!--/ Accordion end -->
+                    <div class="ts-team-content">
+                      <h3 class="ts-name">{{trim($blog->blog_title)}}</h3>
+                       <p class="ts-description">{!!substr($blog->blog_content,0,50).'...'!!}</p>
+                      <p class="ts-designation">{{date_format(date_create($blog->created_at),'l jS F Y')}}</p>
 
-        </div><!-- Col end -->
-    </div><!-- Row end -->
-  </div><!-- Container end -->
-</section><!-- Feature are end -->
+
+                    </div>
+                </div><!--/ Team wrapper end -->
+                </a>
+              </div><!-- Team 1 end -->
+
+             @endforeach
+
+          </div><!-- Team slide end -->
+        </div>
+    </div><!--/ Content row end -->
+    <div class="general-btn text-center mt-4">
+        <a class="btn btn-primary" href="{{route('blog.Index')}}">Hepsini Gör</a>
+    </div>
+  </div><!--/ Container end -->
+</section><!--/ Team end -->
 
 <section id="facts" class="facts-area dark-bg">
   <div class="container">
@@ -339,61 +322,7 @@ LOGO
   <!--/ Container end -->
 </section><!-- Project area end -->
 
-<section class="content">
-  <div class="container">
-    <div class="row">
 
-
-        <div class="col-lg-12 mt-5 mt-lg-0">
-
-          <h3 class="column-title text-center">Markalar</h3>
-
-          <div class="row all-clients">
-              <div class="col-sm-4 col-6">
-                <figure class="clients-logo">
-                    <a href="#!"><img loading="lazy" class="img-fluid" src="images/clients/client1.png" alt="clients-logo" /></a>
-                </figure>
-              </div><!-- Client 1 end -->
-
-              <div class="col-sm-4 col-6">
-                <figure class="clients-logo">
-                    <a href="#!"><img loading="lazy" class="img-fluid" src="images/clients/client2.png" alt="clients-logo" /></a>
-                </figure>
-              </div><!-- Client 2 end -->
-
-              <div class="col-sm-4 col-6">
-                <figure class="clients-logo">
-                    <a href="#!"><img loading="lazy" class="img-fluid" src="images/clients/client3.png" alt="clients-logo" /></a>
-                </figure>
-              </div><!-- Client 3 end -->
-
-              <div class="col-sm-4 col-6">
-                <figure class="clients-logo">
-                    <a href="#!"><img loading="lazy" class="img-fluid" src="images/clients/client4.png" alt="clients-logo" /></a>
-                </figure>
-              </div><!-- Client 4 end -->
-
-              <div class="col-sm-4 col-6">
-                <figure class="clients-logo">
-                    <a href="#!"><img loading="lazy" class="img-fluid" src="images/clients/client5.png" alt="clients-logo" /></a>
-                </figure>
-              </div><!-- Client 5 end -->
-
-              <div class="col-sm-4 col-6">
-                <figure class="clients-logo">
-                    <a href="#!"><img loading="lazy" class="img-fluid" src="images/clients/client6.png" alt="clients-logo" /></a>
-                </figure>
-              </div><!-- Client 6 end -->
-
-          </div><!-- Clients row end -->
-
-        </div><!-- Col end -->
-
-    </div>
-    <!--/ Content row end -->
-  </div>
-  <!--/ Container end -->
-</section><!-- Content end -->
 
 <section class="subscribe no-padding">
   <div class="container">
@@ -429,61 +358,40 @@ LOGO
 </section>
 <!--/ subscribe end -->
 
-<section id="news" class="news">
+<section class="content">
   <div class="container">
-    <div class="row text-center">
-        <div class="col-12">
-          <h2 class="section-title">Blogmuş gibi</h2>
-          <h3 class="section-sub-title">Blog</h3>
-
-        </div>
-    </div>
-    <!--/ Title row end -->
-
     <div class="row">
 
 
-        @foreach ($data['blog'] as $blog )
+        <div class="col-lg-12 mt-5 mt-lg-0">
 
+          <h3 class="column-title text-center">Markalar</h3>
 
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="latest-post">
-              <div class="latest-post-media mh-100" style=" height: 180px;">
-                <a href="{{route('blog.Detail',$blog->blog_slug)}}" class="latest-post-img">
-                    <img loading="lazy" class="img-fluid"  src="/images/blogs/{{$blog->blog_file}}" alt="img">
-                </a>
+          <div class="row all-clients">
+
+            @foreach($data['brand'] as $marka)
+ <div class="col-sm-4 col-6">
+                <figure class="clients-logo">
+                    <a href="{{$marka->brand_url}}"><img loading="lazy" class="img-fluid" src="/images/brands/{{$marka->brand_file}}" alt="{{Str::slug($marka->brand_title)}}" /></a>
+                </figure>
               </div>
-              <div class="post-body">
-                <h4 class="post-title">
-                    <a href="news-single.html" class="d-inline-block">{{trim($blog->blog_title)}}</a>
-                </h4>
-                <div class="post-body">{!!substr($blog->blog_content,0,100).'...'!!}</div>
-                <div class="latest-post-meta">
-                    <span class="post-item-date">
-                      <i class="fa fa-clock-o"></i> {{date_format(date_create($blog->created_at),'l jS F Y')}}
-                    </span>
-                </div>
-              </div>
-          </div><!-- Latest post end -->
-        </div><!-- 1st post col end -->
-@if($blog->blog_must==2)
-@break
+            @endforeach
 
-@endif
- @endforeach
 
+
+
+          </div><!-- Clients row end -->
+
+        </div><!-- Col end -->
 
     </div>
     <!--/ Content row end -->
-
-    <div class="general-btn text-center mt-4">
-        <a class="btn btn-primary" href="news-left-sidebar.html">Hepsini Gör</a>
-    </div>
-
   </div>
   <!--/ Container end -->
-</section>
-<!--/ News end -->
+</section><!-- Content end -->
+
+
+
 @endsection
 
 @section('css') @endsection

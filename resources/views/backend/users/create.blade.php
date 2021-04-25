@@ -52,7 +52,27 @@
                         <label for="">Şifre</label>
                         <div class="row">
                             <div class="col-xs-12 ">
-                                <input class="form-control" type="password" id="passInput" value="" required name="password"
+                                <input class="form-control passInput" type="password" id="passInput" value="" required name="password"
+                                    id="">
+                            </div>
+
+
+                    </div>
+                    <div class="form-check form-check-inline text-right">
+                            <label class="form-check-label" for="defaultCheck1">
+                                Göster
+                            </label>
+                            <input class="form-check-input" type="checkbox" onclick="passShow()" value=""
+                                id="defaultCheck1">
+
+                        </div>
+                        </div>
+                    <div class="form-group">
+                        <label for="">Şifre Tekrarı</label>
+                        <div class="row">
+                            <div class="col-xs-12 ">
+                                <input class="form-control" type="password" id="passcInput" value="" required
+                   name="password_confirmation"
                                     id="">
                             </div>
 
@@ -61,7 +81,7 @@
                             <label class="form-check-label" for="defaultCheck1">
                                 Göster
                             </label>
-                            <input class="form-check-input" type="checkbox" onclick="passShow()" value=""
+                            <input class="form-check-input" type="checkbox" onclick="passcShow()" value=""
                                 id="defaultCheck1">
 
                         </div>
@@ -100,7 +120,14 @@
             }
         }
 
-
+function passcShow() {
+            var z = document.getElementById("passcInput");
+            if (z.type === "password") {
+                z.type = "text";
+            } else {
+                z.type = "password";
+            }
+        }
 
     </script>
 

@@ -30,48 +30,42 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas metus et ma
                     'page_slug' => 'page-title-01',
                     'page_file' => '60837c51a1190.png',
                     'page_must' => 1,
-                    'page_content' => $lorem,
-                    'page_status' => '1'
+                    'page_content' => $lorem
                 ],
                 [
                     'page_title' => 'Page Title 02',
                     'page_slug' => 'page-title-02',
                     'page_file' => '60837c497599a.png',
                     'page_must' => 2,
-                    'page_content' => $lorem,
-                    'page_status' => '1'
+                    'page_content' => $lorem
                 ],
                 [
                     'page_title' => 'Page Title 03',
                     'page_slug' => 'page-title-03',
                     'page_file' => '60837f846c4bb.png',
                     'page_must' => 3,
-                    'page_content' => $lorem,
-                    'page_status' => '1'
+                    'page_content' => $lorem
                 ],
                 [
                     'page_title' => 'Page Title 04',
                     'page_slug' => 'page-title-04',
                     'page_file' => '6083801c3e467.png',
                     'page_must' => 4,
-                    'page_content' => $lorem,
-                    'page_status' => '1'
+                    'page_content' => $lorem
                 ],
                 [
                     'page_title' => 'Page Title 05',
                     'page_slug' => 'page-title-05',
-                    'page_file' => null,
+                    'page_file' => '6083801c3e467.png',
                     'page_must' => 5,
-                    'page_content' => $lorem,
-                    'page_status' => '1'
+                    'page_content' => $lorem
                 ],
                 [
                     'page_title' => 'Page Title 06',
                     'page_slug' => 'page-title-06',
-                    'page_file' => null,
+                    'page_file' => '6083801c3e467.png',
                     'page_must' => 6,
-                    'page_content' => $lorem,
-                    'page_status' => '1'
+                    'page_content' => $lorem
                 ]
 
             ]

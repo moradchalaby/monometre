@@ -38,8 +38,8 @@ DELETE	         /photos/{photo}         	    destroy	         photos.destroy
 /*
 Route::get('/', function () {
     return view('welcome');
-});
- */
+});*/
+
 
 
 
@@ -56,6 +56,7 @@ Route::namespace('Backend')->group(function () {
             Route::get('/delete/{id}', 'SettingsController@destroy')->name('settings.Destroy');
             Route::get('/edit/{id}', 'SettingsController@edit')->name('settings.Edit');
             Route::post('/{id}', 'SettingsController@update')->name('settings.Update');
+
         });
     });
 });
@@ -81,6 +82,10 @@ Route::namespace('Frontend')->group(
 Route::namespace('Backend')->group(function () {
 
     Route::prefix('nedmin')->group(function () {
+        Route::get('/register', 'RegistrationController@create')->name('register.create');
+        Route::post('register', 'UserController@store')->name('register.store');
+
+
         Route::get('/dashboard', 'DefaultController@index')->name('nedmin.Index')->middleware('admin');
         Route::get('/', 'DefaultController@login')->name('nedmin.Login');
         Route::get('/logout', 'DefaultController@logout')->name('nedmin.Logout');
@@ -102,12 +107,17 @@ Route::namespace('Backend')->group(function () {
             Route::post('/slider/sortable', 'SliderController@sortable')->name('slider.Sortable');
             Route::resource('slider', 'SliderController');
 
+            //CLIENT
+            Route::post('/brand/sortable', 'BrandController@sortable')->name('brand.Sortable');
+            Route::resource('brand', 'BrandController');
+
             //USER
             Route::post('/user/sortable', 'UserController@sortable')->name('user.Sortable');
             Route::resource('user', 'UserController');
         });
     });
 });
+
 
 //Auth::routes();
 

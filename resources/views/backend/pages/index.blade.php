@@ -30,10 +30,10 @@ Sayfalar
 
                    <td class="sortable">{{$page['page_title']}}</td>
 
-                   <td width="5"><a href="{{route('page.edit',$page->id)}}"><i class="fa fa-pencil-square"></i></a>
+                   <td width="5"><a href="{{route('page.edit',$page->id)}}"><i class="fas fa-pencil-alt"></i></a>
                        </td>
 
-                   <td width="5"><a href="javascript:void(0)"><i id="@php  echo $page->id  @endphp" class="fa fa-trash-o"></i></a></td>
+                   <td width="5"><a href="javascript:void(0)"><i id="@php  echo $page->id  @endphp" class="fas fa-trash-alt"></i></a></td>
 
                 </tr>
 

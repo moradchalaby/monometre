@@ -46,7 +46,7 @@ class UserController extends Controller
             'name' => 'required',
             'username' => 'required',
             'email' => 'required|email',
-            'password' => 'required|Min:6'
+            'password' => 'required|Min:6|confirmed'
         ]);
       /*   if (strlen($request->user_slug) > 3) {
 
@@ -70,7 +70,7 @@ class UserController extends Controller
             $request->user_file->move(public_path('images/users'), $file_name);
             # code...
         } else {
-            $file_name = null;
+            $file_name = 'profilepic.png';
         }
 
 
@@ -79,12 +79,16 @@ class UserController extends Controller
             "name" => $request->name,
             "username" =>  $request->username,
             "email" => $request->email,
-            "user_file" => $file_name,
-            "password" => Hash::make($request->password),
-            "user_status" => $request->user_status
+             "user_file" => $file_name,
+            "password" => Hash::make($request->password)
         ]);
         if ($user) {
-            return redirect(route('user.index'))->with('success', 'Kayıt İşlemi Başarılı');
+            $uservar=User::all();
+            if ($uservar && $uservar->count()>=2) {
+
+                return redirect(route('user.index'))->with('success', 'Kayıt İşlemi Başarılı');
+            }
+            return redirect(route('nedmin.Login'))->with('success2', 'Kayıt İşlemi Başarılı Giriş Yapabilirsiniz');
             # code...
         }
         return back()->with('error', 'Kayıt İşlemi Başarısız');

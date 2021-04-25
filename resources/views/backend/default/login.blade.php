@@ -61,6 +61,11 @@ body{
             {{session('success')}}
         </div>
     @endif
+    @if (session()->has('success2'))
+        <div class="alert alert-success">
+            {{session('success2')}}
+        </div>
+    @endif
 
     <form action="{{route('nedmin.Authenticate')}}" method="post">
         @csrf {{-- Bunu Unutma  --}}

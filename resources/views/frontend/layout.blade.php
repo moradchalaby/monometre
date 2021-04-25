@@ -84,7 +84,8 @@
                         <div class="row align-items-center">
                             <div class="logo col-lg-3 text-center text-lg-left mb-3 mb-md-5 mb-lg-0">
                                 <a class="d-block" href="{{ route('home.Index') }}">
-                                    <img loading="lazy" src="/images/settings/608337958c03c.png" alt="Constra">
+                                    <img id='logo' loading="lazy" src="/images/settings/{{$logo->settings_value}}" alt="Constra">
+
                                 </a>
                             </div><!-- logo end -->
 
