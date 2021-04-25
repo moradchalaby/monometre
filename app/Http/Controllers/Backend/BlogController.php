@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Blogs;
 use Illuminate\Support\Str;
-
-
+use Illuminate\Support\Carbon;
+use Faker\Provider\tr_TR\DateTime;
 class BlogController extends Controller
 {
     /**
@@ -147,6 +147,7 @@ class BlogController extends Controller
         $blog = Blogs::where('id',$id)->update([
             "blog_title" => $request->blog_title,
             "blog_slug" => $slug,
+
             "blog_file" => $file_name,
             "blog_content" => $request->blog_content,
             "blog_status" => $request->blog_status
