@@ -107,9 +107,15 @@ Route::namespace('Backend')->group(function () {
             Route::post('/slider/sortable', 'SliderController@sortable')->name('slider.Sortable');
             Route::resource('slider', 'SliderController');
 
-            //CLIENT
+            //BRAND
             Route::post('/brand/sortable', 'BrandController@sortable')->name('brand.Sortable');
             Route::resource('brand', 'BrandController');
+            //Product
+            Route::post('/product/sortable', 'ProductController@sortable')->name('product.Sortable');
+            Route::resource('product', 'ProductController');
+            //Category
+            Route::post('/category/sortable', 'CategoryController@sortable')->name('category.Sortable');
+            Route::resource('category', 'CategoryController');
 
             //USER
             Route::post('/user/sortable', 'UserController@sortable')->name('user.Sortable');

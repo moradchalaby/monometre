@@ -23,14 +23,37 @@ scratch. This page gets rid of all links and provides the needed markup only.
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
     <link rel="stylesheet" href="/backend/dist/css/skins/skin-blue.min.css">
-    <!-- jQuery 3 -->
-    <script src="/backend/bower_components/jquery/dist/jquery.min.js"></script>
+ <script src="/backend/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="/backend/bower_components/jquery-ui/jquery-ui.js"></script>
     <!-- Bootstrap 3.3.7 -->
     <script src="/backend/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- DataTables -->
+    <script src="/backend/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="/backend/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <!-- SlimScroll -->
+    <script src="/backend/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- FastClick -->
+    <script src="/backend/bower_components/fastclick/lib/fastclick.js"></script>
     <!-- AdminLTE App -->
     <script src="/backend/dist/js/adminlte.min.js"></script>
-    <!--// ALERTİFY -->
+    <!-- AdminLTE for demo purposes -->
+    <script src="/backend/dist/js/demo.js"></script>
+    <!-- page script -->
+    <script>
+        $(function() {
+            $('#example1').DataTable()
+            $('#example2').DataTable({
+                'paging': true,
+                'lengthChange': false,
+                'searching': false,
+                'ordering': true,
+                'info': true,
+                'autoWidth': false
+            })
+        });
+
+    </script>
+    <!-- // ALERTİFY -->
 
     <script src="/backend/bower_components/alertify/alertify.min.js"></script>
     <link rel="stylesheet" href="/backend/dist/css/alertify/alertify.min.css">
@@ -79,7 +102,7 @@ desired effect
         <header class="main-header">
 
             <!-- Logo -->
-            <a href="{{route('nedmin.Index')}}" class="logo">
+            <a href="{{ route('nedmin.Index') }}" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>MM</b>Y</span>
                 <!-- logo for regular state and mobile devices -->
@@ -103,17 +126,19 @@ desired effect
                             <!-- Menu Toggle Button -->
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <!-- The user image in the navbar-->
-                                <img src="/images/users/{{Auth::user()->user_file}}" class="user-image" alt="User Image">
+                                <img src="/images/users/{{ Auth::user()->user_file }}" class="user-image"
+                                    alt="User Image">
                                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                                <span class="hidden-xs">{{Auth::user()->name}}</span>
+                                <span class="hidden-xs">{{ Auth::user()->name }}</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- The user image in the menu -->
                                 <li class="user-header">
-                                    <img src="/images/users/{{Auth::user()->user_file}}" class="img-circle" alt="User Image">
+                                    <img src="/images/users/{{ Auth::user()->user_file }}" class="img-circle"
+                                        alt="User Image">
 
                                     <p>
-                                        {{Auth::user()->name}} - Yönetici
+                                        {{ Auth::user()->name }} - Yönetici
 
                                     </p>
 
@@ -123,10 +148,12 @@ desired effect
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="{{route('user.edit',Auth::user()->id)}}" class="btn btn-default btn-flat">Profili Düzenle</a>
+                                        <a href="{{ route('user.edit', Auth::user()->id) }}"
+                                            class="btn btn-default btn-flat">Profili Düzenle</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="{{route('nedmin.Logout')}}" class="btn btn-default btn-flat">Çıkış</a>
+                                        <a href="{{ route('nedmin.Logout') }}"
+                                            class="btn btn-default btn-flat">Çıkış</a>
                                     </div>
                                 </li>
                             </ul>
@@ -146,11 +173,11 @@ desired effect
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel">
                     <div class="pull-left image">
-                        <img src="/images/users/{{Auth::user()->user_file}}" class="img-circle" alt="User Image">
+                        <img src="/images/users/{{ Auth::user()->user_file }}" class="img-circle" alt="User Image">
                     </div>
                     <div class="pull-left info">
-                        <p>{{Auth::user()->name}}</p>
-                         <p>Yönetici</p>
+                        <p>{{ Auth::user()->name }}</p>
+                        <p>Yönetici</p>
                         <!-- Status -->
 
                     </div>
@@ -162,22 +189,33 @@ desired effect
                 <ul class="sidebar-menu" id="menulist" data-widget="tree">
                     <li class="header">MENULER</li>
                     <!-- Optionally, you can add icons to the links -->
-                    <li class=""><a href="{{ route('nedmin.Index') }}"><i class="fa fa-link"></i>
+                    <li class=""><a href="{{ route('nedmin.Index') }}"><i class="fas fa-link"></i>
                             <span>Dashboard</span></a></li>
-                    <li><a href="{{ route('blog.index') }}"><i class="fa fa-share-alt"></i> <span>Bloglar</span></a>
+                    <li><a href="{{ route('blog.index') }}"><i class="fas fa-share-alt"></i> <span>Bloglar</span></a>
                     </li>
-                    <li><a href="{{ route('page.index') }}"><i class="fa fa-file"></i> <span>Sayfalar</span></a></li>
-                    <li><a href="{{ route('slider.index') }}"><i class="fa fa-image"></i> <span>Slider</span></a></li>
-<li><a href="{{ route('brand.index') }}"><i class="fab fa-laravel"></i>   <span>Markalar</span></a></li>
+                    <li><a href="{{ route('page.index') }}"><i class="fas fa-file"></i> <span>Sayfalar</span></a>
+                    </li>
+                    <li><a href="{{ route('slider.index') }}"><i class="fas fa-image"></i> <span>Slider</span></a>
+                    </li>
+                    <li><a href="{{ route('brand.index') }}"><i class="fas fa-handshake"></i></i>
+                            <span>Markalar</span></a>
+                    </li>
+                    <li><a href="{{ route('category.index') }}"><i class="fas fa-th-list"></i>
+                            <span>Kategoriler</span></a>
+                    </li>
+                    <li><a href="{{ route('product.index') }}"><i class="fas fa-tags"></i> <span>Ürünler</span></a>
+                    </li>
                     <li class="treeview active">
-                        <a href="#"><i class="fa fa-link"></i> <span>Yönetim</span>
+                        <a href="#"><i class="fas fa-user"></i> <span>Yönetim</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                    <li><a href="{{ route('settings.Index') }}"><i class="fa fa-cog"></i> <span>Ayarlar</span></a></li>
-                    <li><a href="{{ route('user.index') }}"><i class="fa fa-user"></i> <span>Kullanıcılar</span></a></li>
+                            <li><a href="{{ route('settings.Index') }}"><i class="fas fa-cog"></i>
+                                    <span>Ayarlar</span></a></li>
+                            <li><a href="{{ route('user.index') }}"><i class="fas fa-users"></i>
+                                    <span>Kullanıcılar</span></a></li>
                         </ul>
                     </li>
                 </ul>
@@ -254,17 +292,18 @@ desired effect
                 alertify.error('{{ str_ireplace('password', 'Şifre', $error) }}');
             } else if (username != -1) {
                 alertify.error('{{ str_ireplace('username', 'Kullanıcı Adı', $error) }}');
-            }  else if (email != -1) {
+            } else if (email != -1) {
                 alertify.error('{{ str_ireplace('email', 'E-Mail', $error) }}');
             } else if (name != -1) {
                 alertify.error('{{ str_ireplace('name', 'Ad Soyad', $error) }}');
-            }else {
+            } else {
                 alertify.error('{{ $error }}');
             }
 
         </script>
 
     @endforeach
+<!-- jQuery 3 -->
 
 </body>
 

@@ -15,7 +15,8 @@ class CreateBlogsTable extends Migration
     {
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->timestamp('created_at')->nullable()->useCurrent();
+            $table->timestamp('update_at')->nullable()->useCurrent();
             $table->string('blog_title')->nullable();
             $table->string('blog_slug')->nullable();
             $table->string('blog_file')->nullable();

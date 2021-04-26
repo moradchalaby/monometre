@@ -1,10 +1,8 @@
 <?php
 
-
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
-class BrandsTableSeeder extends Seeder
+class ProductsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -24,71 +22,78 @@ Vivamus a sapien ac erat euismod vehicula ac vel dolor. Orci varius natoque pena
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas metus et massa sollicitudin, nec porta quam pretium. Phasellus at turpis mi. Etiam mi risus, pharetra vitae enim eu, luctus fringilla tortor. Etiam consequat dolor quis erat interdum faucibus. Ut ullamcorper eleifend enim pulvinar fringilla. Pellentesque interdum ullamcorper risus, egestas pulvinar odio sagittis eget. In dignissim neque vel velit posuere consequat. Fusce vehicula risus magna, ac tempus tellus fringilla a. Phasellus sollicitudin sit amet justo euismod faucibus. Cras id gravida orci. Nam finibus non sem eget pharetra. Donec auctor felis sit amet volutpat aliquet. Fusce porta, enim id congue tincidunt, augue odio posuere ipsum, eget lobortis lorem lectus a sapien. Vestibulum lobortis velit id sapien gravida, vitae gravida sapien elementum.';
 
 
-        DB::table('brands')->insert(
+
+
+
+
+        DB::table('products')->insert(
             [
                 [
-                    'brand_title' => 'BAYMAK KOMBİ',
-                    'brand_slug' => 'baymak-kombi',
-                    'brand_file' => '60859262d4a25.png',
-                    'brand_must' => 1,
-                    'brand_content' => $lorem,
-                    'brand_status' => '1'
+                    'product_category'=>1,
+                    'product_title' => 'Ürün Title 01',
+                    'product_slug' => 'urun-title-01',
+                    'product_file' => '60837c51a1190.png',
+                    'product_must' => 1,
+                    'product_content' => $lorem,
+                    'product_status' => '1',
+                    'product_stock'=>100,
+                    'product_price' => '4,500'
+
                 ],
                 [
-                    'brand_title' => 'Brand Title 02',
-                    'brand_slug' => 'brand-title-02',
-                    'brand_file' => '608596c24e2e1.jpg',
-                    'brand_must' => 2,
-                    'brand_content' => $lorem,
-                    'brand_status' => '1'
+                    'product_category' => 2,
+                    'product_title' => 'Ürün Title 01',
+                    'product_slug' => 'urun-title-01',
+                    'product_file' => '60837c51a1190.png',
+                    'product_must' => 1,
+                    'product_content' => $lorem,
+                    'product_status' => '1',
+                    'product_stock' => 100,
+                    'product_price' => '4,500'
                 ],
                 [
-                    'brand_title' => 'Brand Title 03',
-                    'brand_slug' => 'brand-title-03',
-                    'brand_file' => '608596ce13265.png',
-                    'brand_must' => 3,
-                    'brand_content' => $lorem,
-                    'brand_status' => '1'
+                    'product_category' => 3,
+                    'product_title' => 'Ürün Title 01',
+                    'product_slug' => 'urun-title-01',
+                    'product_file' => '60837c51a1190.png',
+                    'product_must' => 1,
+                    'product_content' => $lorem,
+                    'product_status' => '1',
+                    'product_stock' => 100,
+                    'product_price' => '4,500'
                 ],
                 [
-                    'brand_title' => 'GFS FLEX SYSTEM',
-                    'brand_slug' => 'gfs-flexy-system',
-                    'brand_file' => '6085e8de703d7.png',
-                    'brand_must' => 2,
-                    'brand_content' => $lorem,
-                    'brand_status' => '1'
+                    'product_category' => 4,
+                    'product_title' => 'Ürün Title 01',
+                    'product_slug' => 'urun-title-01',
+                    'product_file' => '60837c51a1190.png',
+                    'product_must' => 1,
+                    'product_content' => $lorem,
+                    'product_status' => '1',
+                    'product_stock' => 100,
+                    'product_price' => '4,500'
                 ],
                 [
-                    'brand_title' => 'VIESSMAN KOMBİ',
-                    'brand_slug' => 'viessman-kombi',
-                    'brand_file' => '6085970647151.png',
-                    'brand_must' => 3,
-                    'brand_content' => $lorem,
-                    'brand_status' => '1'
+                    'product_category' => 5,
+                    'product_title' => 'Ürün Title 01',
+                    'product_slug' => 'urun-title-01',
+                    'product_file' => '60837c51a1190.png',
+                    'product_must' => 1,
+                    'product_content' => $lorem,
+                    'product_status' => '1',
+                    'product_stock' => 100,
+                    'product_price' => '4,500'
                 ],
                 [
-                    'brand_title' => 'Brand Title 04',
-                    'brand_slug' => 'brand-title-04',
-                    'brand_file' => '6085969f35628.png',
-                    'brand_must' => 4,
-                    'brand_content' => $lorem,
-                    'brand_status' => '1'
-                ],
-                [
-                    'brand_title' => 'Brand Title 05',
-                    'brand_slug' => 'brand-title-05',
-                    'brand_file' => '6085973e37e78.png',
-                    'brand_must' => 5,
-                    'brand_content' => $lorem,
-                    'brand_status' => '1'
-                ],
-                [
-                    'brand_title' => 'Brand Title 06',
-                    'brand_slug' => 'brand-title-06',
-                    'brand_file' => '60859712bc476.jpg',
-                    'brand_must' => 6,
-                    'brand_content' => $lorem,
-                    'brand_status' => '1'
+                    'product_category' => 6,
+                    'product_title' => 'Ürün Title 01',
+                    'product_slug' => 'urun-title-01',
+                    'product_file' => '60837c51a1190.png',
+                    'product_must' => 1,
+                    'product_content' => $lorem,
+                    'product_status' => '1',
+                    'product_stock' => 100,
+                    'product_price' => '4,500'
                 ]
 
             ]

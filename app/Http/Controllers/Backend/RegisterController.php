@@ -27,3 +27,4 @@ class RegistrationController extends Controller
         return redirect()->to('/nedmin');
     }
 }
+

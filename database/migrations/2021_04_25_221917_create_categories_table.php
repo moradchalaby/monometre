@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePagesTable extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,15 @@ class CreatePagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('pages', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->timestamp('created_at')->nullable()->useCurrent();
             $table->timestamp('update_at')->nullable()->useCurrent();
-            $table->string('page_title')->nullable();
-            $table->string('page_slug')->nullable();
-            $table->string('page_file')->nullable();
-            $table->integer('page_must')->nullable();
-            $table->text('page_content')->nullable();
-            $table->enum('page_status', ['0', '1'])->default('1');
+            $table->string('category_title')->nullable();
+            $table->string('category_slug')->nullable();
+            $table->string('category_file')->nullable();
+            $table->integer('category_must')->nullable();
+            $table->enum('category_status', ['0', '1'])->default('1');
         });
     }
 
@@ -33,6 +32,6 @@ class CreatePagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pages');
+        Schema::dropIfExists('categories');
     }
 }
