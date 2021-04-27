@@ -30,9 +30,6 @@
                                 <td>{{ $product['product_title'] }}</td>
                                 @foreach ($data['category']->where('id',$product->product_category) as $category)
 
-
-
-
                                 <td>{{ $category->category_title}}</td>
 
                                   @endforeach

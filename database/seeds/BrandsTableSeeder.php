@@ -31,6 +31,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas metus et ma
                     'brand_slug' => 'baymak-kombi',
                     'brand_file' => '60859262d4a25.png',
                     'brand_must' => 1,
+                    'brand_category' => 1,
                     'brand_content' => $lorem,
                     'brand_status' => '1'
                 ],
@@ -39,6 +40,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas metus et ma
                     'brand_slug' => 'brand-title-02',
                     'brand_file' => '608596c24e2e1.jpg',
                     'brand_must' => 2,
+                    'brand_category' => 2,
                     'brand_content' => $lorem,
                     'brand_status' => '1'
                 ],
@@ -47,6 +49,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas metus et ma
                     'brand_slug' => 'brand-title-03',
                     'brand_file' => '608596ce13265.png',
                     'brand_must' => 3,
+                    'brand_category' => 3,
                     'brand_content' => $lorem,
                     'brand_status' => '1'
                 ],
@@ -55,6 +58,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas metus et ma
                     'brand_slug' => 'gfs-flexy-system',
                     'brand_file' => '6085e8de703d7.png',
                     'brand_must' => 2,
+                    'brand_category' => 2,
                     'brand_content' => $lorem,
                     'brand_status' => '1'
                 ],
@@ -62,6 +66,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas metus et ma
                     'brand_title' => 'VIESSMAN KOMBİ',
                     'brand_slug' => 'viessman-kombi',
                     'brand_file' => '6085970647151.png',
+                    'brand_must' => 3,
                     'brand_must' => 3,
                     'brand_content' => $lorem,
                     'brand_status' => '1'
@@ -71,6 +76,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas metus et ma
                     'brand_slug' => 'brand-title-04',
                     'brand_file' => '6085969f35628.png',
                     'brand_must' => 4,
+                    'brand_category' => 4,
                     'brand_content' => $lorem,
                     'brand_status' => '1'
                 ],
@@ -79,6 +85,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas metus et ma
                     'brand_slug' => 'brand-title-05',
                     'brand_file' => '6085973e37e78.png',
                     'brand_must' => 5,
+                    'brand_category' => 5,
                     'brand_content' => $lorem,
                     'brand_status' => '1'
                 ],
@@ -87,6 +94,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas metus et ma
                     'brand_slug' => 'brand-title-06',
                     'brand_file' => '60859712bc476.jpg',
                     'brand_must' => 6,
+                    'brand_category' => 6,
                     'brand_content' => $lorem,
                     'brand_status' => '1'
                 ]

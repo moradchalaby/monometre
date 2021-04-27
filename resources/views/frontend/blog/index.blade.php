@@ -27,7 +27,7 @@
 
 <section id="main-container" class="main-container pb-2">
   <div class="container">
-    <div class="row">
+    <div class="row" id="paginate">
 
 @foreach ($data['blog'] as $blog)
 
@@ -35,7 +35,7 @@
       <div class="col-lg-4 col-md-6 mb-5">
         <div class="ts-service-box">
             <div class="ts-service-image-wrapper mh-100" style=" height: 180px;"">
-              <img loading="lazy" class="w-100" src="/images/blogs/{{$blog->blog_file}}" alt="service-image">
+              <img loading="lazy" class="w-100" src="/images/blogs/{{$blog->blog_file}}" alt="{{$blog->blog_slug}}-image">
             </div>
             <div class="d-flex">
 
@@ -45,9 +45,9 @@
                   <span class="post-item-date">
                       <i class="fa fa-clock-o"></i> {{date_format(date_create($blog->created_at),'l jS F Y')}}
                     </span>
-                  <div class="mh-100" style=" height: 200px;"">{!! substr($blog->blog_content,0,200).'...'!!}</div>
+                  <div class="mh-100" style=" height: 200px;"">{!! substr($blog->blog_content,0,150).'...'!!}</div>
 
-                  <a class="learn-more d-inline-block" href="{{route('blog.Detail',$blog->blog_slug)}}" aria-label="service-details"><i class="fa fa-caret-right"></i> Learn more</a>
+                  <a class="learn-more d-inline-block" href="{{route('blog.Detail',$blog->blog_slug)}}" aria-label="service-details"><i class="fa fa-caret-right"></i> Devamını Oku</a>
 
                 </div>
             </div>

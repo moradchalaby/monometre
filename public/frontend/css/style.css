@@ -1988,7 +1988,24 @@ ul.navbar-nav > li.header-get-a-quote:hover > a:after {
   -webkit-transform: perspective(1px) scale3d(1, 1, 1);
           transform: perspective(1px) scale3d(1, 1, 1);
 }
+.gallery-popup{
+    margin: 0 0 30px;
+  border: 1px solid #FFB600;
 
+  height: 250px;
+  padding: 30px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+.gallery-popup img{
+     -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+  -webkit-filter: gray;
+          filter: gray;
+}
 .shuffle-item .project-img-container .project-item-info {
   position: absolute;
   top: 50%;

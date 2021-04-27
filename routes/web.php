@@ -70,6 +70,10 @@ Route::namespace('Frontend')->group(
         Route::get('/blog', 'BlogController@index')->name('blog.Index');
         Route::get('/blog/{slug}', 'BlogController@detail')->name('blog.Detail');
 
+        //PRODUCT
+        Route::get('/product/{id}', 'ProductController@index')->name('product.Index');
+        Route::get('/productdetail/{id}', 'ProductController@detail')->name('product.Detail');
+
         //PAGE
 
         Route::get('/page/{slug}', 'PageController@detail')->name('page.Detail');

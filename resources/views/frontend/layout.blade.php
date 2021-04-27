@@ -34,6 +34,10 @@
     <!-- Template styles-->
     <link rel="stylesheet" href="/frontend/css/style.css">
 
+
+    <link rel="stylesheet" href="/frontend/css/jquery.paginate.css" />
+
+    <script data-ad-client="ca-pub-3500157718156258" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
 <body>
@@ -84,7 +88,8 @@
                         <div class="row align-items-center">
                             <div class="logo col-lg-3 text-center text-lg-left mb-3 mb-md-5 mb-lg-0">
                                 <a class="d-block" href="{{ route('home.Index') }}">
-                                    <img id='logo' loading="lazy" src="/images/settings/{{$logo->settings_value}}" alt="Constra">
+                                    <img id='logo' loading="lazy" src="/images/settings/{{ $logo->settings_value }}"
+                                        alt="Constra">
 
                                 </a>
                             </div><!-- logo end -->
@@ -145,24 +150,27 @@
                                                 href="{{ route('blog.Index') }}">Blog</a></li>
 
 
-@foreach ($slug as $page )
+                                        @foreach ($slug as $page)
 
 
-                                                <li class="nav-item"><a class="nav-link"
-                                                href="/page/{{ $page->page_slug}}">{{$page->page_title}}</a></li>
-@endforeach
+                                            <li class="nav-item"><a class="nav-link"
+                                                    href="/page/{{ $page->page_slug }}">{{ $page->page_title }}</a>
+                                            </li>
+                                        @endforeach
 
-                                                {{-- <li class="nav-item dropdown">
-                                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Company
+                                         <li class="nav-item dropdown">
+                                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Kategoriler
                                                 <i class="fa fa-angle-down"></i></a>
                                             <ul class="dropdown-menu" role="menu">
-                                                <li><a href="about.html">Blog</a></li>
-                                                <li><a href="team.html">Our People</a></li>
-                                                <li><a href="testimonials.html">Testimonials</a></li>
-                                                <li><a href="faq.html">Faq</a></li>
-                                                <li><a href="pricing.html">Pricing</a></li>
+
+                                                 @foreach ($cat as $category)
+
+                                                <li><a href="{{route('product.Index',$category->id)}}">{{$category->category_title}}</a></li>
+
+                                                @endforeach
+                                                 <li><a href="{{route('product.Index','0')}}">Tüm Ürünler</a></li>
                                             </ul>
-                                        </li> --}}
+                                        </li>
 
 
 
@@ -286,6 +294,8 @@
         <!-- Javascript Files
   ================================================== -->
 
+
+
         <!-- initialize jQuery Library -->
         <script src="/frontend/plugins/jQuery/jquery.min.js"></script>
         <!-- Bootstrap jQuery -->
@@ -295,6 +305,9 @@
         <script src="/frontend/plugins/slick/slick-animation.min.js"></script>
         <!-- Color box -->
         <script src="/frontend/plugins/colorbox/jquery.colorbox.js"></script>
+
+        <script src="/frontend/js/jquery.paginate.js"></script>
+
         <!-- shuffle -->
         <script src="/frontend/plugins/shuffle/shuffle.min.js" defer></script>
 
@@ -307,7 +320,11 @@
 
         <!-- Template custom -->
         <script src="/frontend/js/script.js"></script>
+        <script>
+            //call paginate
+            $('#paginate').paginate();
 
+        </script>
     </div><!-- Body inner end -->
 </body>
 

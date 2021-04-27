@@ -22,6 +22,7 @@ class CreateBrandsTable extends Migration
             $table->string('brand_url')->nullable();
             $table->string('brand_file')->nullable();
             $table->integer('brand_must')->nullable();
+            $table->integer('brand_category')->nullable();
             $table->text('brand_content')->nullable();
             $table->enum('brand_status', ['0', '1'])->default('1');
         });

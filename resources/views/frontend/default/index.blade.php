@@ -13,12 +13,14 @@
 
 
             @if ($slidersay == 0)
-                <div class="banner-carousel-item" style="background-image:url(/images/sliders/{{ $slider->slider_file }})">
+                <div class="banner-carousel-item"
+                    style="background-image:url(/images/sliders/{{ $slider->slider_file }})">
                     <div class="slider-content text-right">
                         <div class="container h-100">
                             <div class="row align-items-center h-100">
                                 <div class="col-md-12">
-                                    <h2 class="slide-title" data-animation-in="slideInDown">{{ $slider->slider_title }}</h2>
+                                    <h2 class="slide-title" data-animation-in="slideInDown">{{ $slider->slider_title }}
+                                    </h2>
 
                                     <div class="slider-description lead" data-animation-in="slideInRight">
                                         {!! substr($slider->slider_content, 0, 100) . '...' !!}</div>
@@ -34,12 +36,14 @@
                     </div>
                 </div>
             @elseif($slidersay==1)
-                <div class="banner-carousel-item" style="background-image:url(/images/sliders/{{ $slider->slider_file }})">
+                <div class="banner-carousel-item"
+                    style="background-image:url(/images/sliders/{{ $slider->slider_file }})">
                     <div class="slider-content">
                         <div class="container h-100">
                             <div class="row align-items-center h-100">
                                 <div class="col-md-12 text-center">
-                                    <h2 class="slide-title" data-animation-in="slideInLeft">{{ $slider->slider_title }}</h2>
+                                    <h2 class="slide-title" data-animation-in="slideInLeft">{{ $slider->slider_title }}
+                                    </h2>
                                     <div class="slider-description lead" data-animation-in="slideInRight">
                                         {!! substr($slider->slider_content, 0, 100) . '...' !!}</div>
 
@@ -55,7 +59,8 @@
             @elseif($slidersay==2)
 
 
-                <div class="banner-carousel-item" style="background-image:url(/images/sliders/{{ $slider->slider_file }})">
+                <div class="banner-carousel-item"
+                    style="background-image:url(/images/sliders/{{ $slider->slider_file }})">
                     <div class="slider-content text-left">
                         <div class="container h-100">
                             <div class="row align-items-center h-100">
@@ -164,91 +169,6 @@
     </section>
     <!--/ Team end -->
 
-    <section id="facts" class="facts-area dark-bg">
-        <div class="container">
-            <div class="facts-wrapper">
-
-                LOGO
-            </div>
-            <!--/ Content row end -->
-        </div>
-        <!--/ Container end -->
-    </section><!-- Facts end -->
-
-
-
-    <section id="project-area" class="project-area solid-bg">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-lg-12">
-                    <h2 class="section-title">Sağlam ve Kaliteli</h2>
-                    <h3 class="section-sub-title">Tesisat Ürünleri</h3>
-                </div>
-            </div>
-            <!--/ Title row end -->
-
-            <div class="row">
-                <div class="col-12">
-                    <div class="shuffle-btn-group">
-                        <label class="active" for="all">
-                            <input type="radio" name="shuffle-filter" id="all" value="all" checked="checked">Hepsi
-                        </label>
-                        @foreach ($data['category'] as $category)
-
-
-                            <label for="{{ $category->category_slug }}">
-                                <input type="radio" name="shuffle-filter" id="{{ $category->category_slug }}"
-                                    value="{{ $category->category_slug }}">{{ $category->category_title }}
-                            </label>
-                        @endforeach
-                    </div><!-- project filter end -->
-
-
-                    <div class="row shuffle-wrapper">
-
-
-                        @foreach ($data['product'] as $product)
-                        <div class="col-1 shuffle-sizer"></div>
-                            @foreach ($data['category']->where('id', $product->product_category) as $category)
-                                <div class="col-lg-4 col-md-6 shuffle-item"
-                                    data-groups="[&quot;{{ $category->category_slug }}&quot;]">
-                            @endforeach
-
-                            <div class="project-img-container">
-                                <a class="gallery-popup" href="/images/products/{{ $product->product_file }}"
-                                    aria-label="{{ $product->product_slug }}-img">
-                                    <img class="img-fluid" src="/images/products/{{ $product->product_file }}"
-                                        alt="{{ $product->product_slug }}-img">
-                                    <span class="gallery-icon"><i class="fa fa-plus"></i></span>
-                                </a>
-                                <div class="project-item-info">
-                                    <div class="project-item-info-content">
-                                        <h3 class="project-item-title">
-                                          <a href="/product/{{ $product->product_title }}"> {{ $product->product_title }}</a>
-                                        </h3>
-                                         <a href="/product/{{ $product->product_title }}"><p class="project-cat">Ürüne Git</p></a>
-                                    </div>
-                                </div>
-                            </div>
-                    </div><!-- shuffle item 1 end -->
-
-                    @endforeach
-                </div><!-- shuffle end -->
-            </div>
-
-            <div class="col-12">
-                <div class="general-btn text-center">
-                    <a class="btn btn-primary" href="projects.html">Bütün Ürünler</a>
-                </div>
-            </div>
-
-        </div><!-- Content row end -->
-        </div>
-        <!--/ Container end -->
-    </section><!-- Project area end -->
-
-
-
     <section class="subscribe no-padding">
         <div class="container">
             <div class="row">
@@ -285,39 +205,94 @@
     </section>
     <!--/ subscribe end -->
 
-    <section class="content">
+
+    <section id="project-area" class="project-area solid-bg">
         <div class="container">
-            <div class="row">
-
-
-                <div class="col-lg-12 mt-5 mt-lg-0">
-
-                    <h3 class="column-title text-center">Markalar</h3>
-
-                    <div class="row all-clients">
-
-                        @foreach ($data['brand'] as $marka)
-                            <div class="col-sm-4 col-6">
-                                <figure class="clients-logo">
-                                    <a href="{{ $marka->brand_url }}" target="_blank"><img loading="lazy" class="img-fluid"
-                                            src="/images/brands/{{ $marka->brand_file }}"
-                                            alt="{{ Str::slug($marka->brand_title) }}" /></a>
-                                </figure>
-                            </div>
-                        @endforeach
-
-
-
-
-                    </div><!-- Clients row end -->
-
-                </div><!-- Col end -->
-
+            <div class="row text-center">
+                <div class="col-lg-12">
+                    <h2 class="section-title">Ürünlerini Kullandığımız</h2>
+                    <h3 class="section-sub-title">Markalar</h3>
+                </div>
             </div>
-            <!--/ Content row end -->
-        </div>
+            <!--/ Title row end -->
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="shuffle-btn-group">
+                        <label class="active" for="all">
+                            <input type="radio" name="shuffle-filter" id="all" value="all" checked="checked">Hepsi
+                        </label>
+                        @foreach ($data['category'] as $category)
+
+
+                            <label for="{{ $category->category_slug }}">
+                                <input type="radio" name="shuffle-filter" id="{{ $category->category_slug }}"
+                                    value="{{ $category->category_slug }}">{{ $category->category_title }}
+                            </label>
+                        @endforeach
+                    </div><!-- project filter end -->
+
+
+                    <div class="row shuffle-wrapper">
+                        <div class="col-1 shuffle-sizer"></div>
+
+                        @foreach ($data['brand'] as $brand)
+
+                            @foreach ($data['category']->where('id', $brand->brand_category) as $category)
+                                <div class="col-lg-4 col-md-6 shuffle-item"
+                                    data-groups="[&quot;{{ $category->category_slug }}&quot;]">
+                            @endforeach
+
+                            <div class="project-img-container">
+                                 <a class="gallery-popup" href="/images/products/{{ $brand->brand_file }}"
+                                    aria-label="{{ $brand->brand_slug }}-img">
+
+
+                                        <img class="img-fluid" src="/images/brands/{{ $brand->brand_file }}"
+                                            alt="{{ Str::slug($brand->brand_title) }}-img" />
+
+                                    <span class="gallery-icon"><i class="fa fa-plus"></i></span>
+
+
+                                    {{-- <img class="img-fluid" src="/images/products/{{ $product->product_file }}"
+                                        alt="{{ $product->product_slug }}-img">
+                                    <span class="gallery-icon"><i class="fa fa-plus"></i></span> --}}
+                                </a>
+                                <div class="project-item-info">
+                                    <div class="project-item-info-content">
+                                        <h3 class="project-item-title">
+
+                                            <a href="{{ $brand->brand_url }}">
+                                                {{ $brand->brand_title }}</a>
+                                        </h3>
+                                        @foreach ($data['category']->where('id', $brand->brand_category) as $category)
+                                        <a href="/product/{{ $category->category_slug }}">
+                                            <p class="project-cat">Ürünlere Git</p>
+                                        </a>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                    </div><!-- shuffle item 1 end -->
+
+                    @endforeach
+                    </div><!-- shuffle end -->
+                </div>
+
+                <div class="col-12">
+                    <div class="general-btn text-center">
+                        <a class="btn btn-primary" href="projects.html">Bütün Ürünler</a>
+                    </div>
+                </div>
+
+            </div><!-- Content row end -->
+
+
         <!--/ Container end -->
-    </section><!-- Content end -->
+    </section><!-- Project area end -->
+
+
+
 
 
 

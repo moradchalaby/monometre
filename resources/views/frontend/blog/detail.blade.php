@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="banner-heading">
-                            <h1 class="banner-title">News</h1>
+                            <h1 class="banner-title">{{ $blog->blog_title }}</h1>
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb justify-content-center">
                                     <li class="breadcrumb-item"><a href="#">Anasayfa</a></li>
@@ -55,15 +55,25 @@
                             <div class="entry-content">
                                 {!! $blog->blog_content !!}
                             </div>
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/tr_TR/sdk.js#xfbml=1&version=v10.0" nonce="Jtk0bV5b"></script>
+                            <div id="fb-root"></div>
+                            <script async defer crossorigin="anonymous"
+                                src="https://connect.facebook.net/tr_TR/sdk.js#xfbml=1&version=v10.0" nonce="Jtk0bV5b">
+                            </script>
                             <div class="tags-area d-flex align-items-center justify-content-between">
 
                                 <div class="share-items">
                                     <ul class="post-social-icons list-unstyled">
                                         <li class="social-icons-head">Paylaş:</li>
-                                        <li><div data-href="http://monometre.test/blog/{{$blog->blog_slug}}" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore"><i class="fab fa-facebook-f"></i></a></div></li>
-                                        <li><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false"><i class="fab fa-twitter"></i></a></li>
+                                        <li>
+                                            <div data-href="http://monometre.test/blog/{{ $blog->blog_slug }}"
+                                                data-layout="button_count" data-size="small"><a target="_blank"
+                                                    href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
+                                                    class="fb-xfbml-parse-ignore"><i class="fab fa-facebook-f"></i></a>
+                                            </div>
+                                        </li>
+                                        <li><a href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+                                                class="twitter-share-button" data-show-count="false"><i
+                                                    class="fab fa-twitter"></i></a></li>
 
                                     </ul>
                                 </div>
@@ -72,7 +82,7 @@
                         </div><!-- post-body end -->
                     </div><!-- post content end -->
 
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
 
@@ -90,11 +100,13 @@
 
                                     <li class="d-flex align-items-center">
                                         <div class="posts-thumb">
-                                            <a href="#"><img loading="lazy" alt="img" src="/images/blogs/{{ $blogs->blog_file }}"></a>
+                                            <a href="#"><img loading="lazy" alt="img"
+                                                    src="/images/blogs/{{ $blogs->blog_file }}"></a>
                                         </div>
                                         <div class="post-info">
                                             <h4 class="entry-title">
-                                                <a href="{{route('blog.Detail',$blogs->blog_slug)}}">{{ $blogs->blog_title }}</a>
+                                                <a
+                                                    href="{{ route('blog.Detail', $blogs->blog_slug) }}">{{ $blogs->blog_title }}</a>
                                             </h4>
                                         </div>
                                     </li><!-- 1st post end-->
