@@ -67,7 +67,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas metus et ma
                     'brand_slug' => 'viessman-kombi',
                     'brand_file' => '6085970647151.png',
                     'brand_must' => 3,
-                    'brand_must' => 3,
+                    'brand_category' => 3,
                     'brand_content' => $lorem,
                     'brand_status' => '1'
                 ],

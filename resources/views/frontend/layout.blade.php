@@ -37,7 +37,8 @@
 
     <link rel="stylesheet" href="/frontend/css/jquery.paginate.css" />
 
-    <script data-ad-client="ca-pub-3500157718156258" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script data-ad-client="ca-pub-3500157718156258" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
 <body>
@@ -88,8 +89,7 @@
                         <div class="row align-items-center">
                             <div class="logo col-lg-3 text-center text-lg-left mb-3 mb-md-5 mb-lg-0">
                                 <a class="d-block" href="{{ route('home.Index') }}">
-                                    <img id='logo' loading="lazy" src="/images/settings/{{ $logo->settings_value }}"
-                                        alt="Constra">
+                                    <strong class="logo-lg text-center " ><b class="text-warning" style="font-size: 2.0rem;">MONOMETRE </b> YAPI</strong>
 
                                 </a>
                             </div><!-- logo end -->
@@ -99,7 +99,7 @@
                                     <li>
                                         <div class="info-box">
                                             <div class="info-box-content">
-                                                <p class="info-box-title">Call Us</p>
+                                                <p class="info-box-title">Bizi Ara</p>
                                                 <p class="info-box-subtitle">(+9) 847-291-4353</p>
                                             </div>
                                         </div>
@@ -107,7 +107,7 @@
                                     <li>
                                         <div class="info-box">
                                             <div class="info-box-content">
-                                                <p class="info-box-title">Email Us</p>
+                                                <p class="info-box-title">Bize Email At</p>
                                                 <p class="info-box-subtitle">office@Constra.com</p>
                                             </div>
                                         </div>
@@ -115,13 +115,25 @@
                                     <li class="last">
                                         <div class="info-box last">
                                             <div class="info-box-content">
-                                                <p class="info-box-title">Global Certificate</p>
-                                                <p class="info-box-subtitle">ISO 9001:2017</p>
+                                                <p class="info-box-title">Bizi Takip Et</p>
+                                                <a title="Facebook" target="_blank" href="https://facebbok.com">
+                                                    <span class="social-icon"><i class="fab fa-facebook-f"></i></span>
+                                                </a>
+                                                <a title="Twitter" target="_blank" href="https://twitter.com">
+                                                    <span class="social-icon"><i class="fab fa-twitter"></i></span>
+                                                </a>
+                                                <a title="Instagram" target="_blank" href="https://instagram.com">
+                                                    <span class="social-icon"><i class="fab fa-instagram"></i></span>
+                                                </a>
+                                                <a title="Youtube" target="_blank" href="https://youtube.com/">
+                                                    <span class="social-icon"><i class="fab fa-youtube"></i></span>
+                                                </a>
                                             </div>
                                         </div>
                                     </li>
                                     <li class="header-get-a-quote">
-                                        <a class="btn btn-primary" href="contact.html">Get A Quote</a>
+                                        <a class="btn btn-primary" href="contact.html">İletişim
+                                        </a>
                                     </li>
                                 </ul><!-- Ul end -->
                             </div><!-- header right end -->
@@ -158,17 +170,20 @@
                                             </li>
                                         @endforeach
 
-                                         <li class="nav-item dropdown">
-                                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Kategoriler
+                                        <li class="nav-item dropdown">
+                                            <a href="#" class="nav-link dropdown-toggle"
+                                                data-toggle="dropdown">Kategoriler
                                                 <i class="fa fa-angle-down"></i></a>
                                             <ul class="dropdown-menu" role="menu">
 
-                                                 @foreach ($cat as $category)
+                                                @foreach ($cat as $category)
 
-                                                <li><a href="{{route('product.Index',$category->id)}}">{{$category->category_title}}</a></li>
+                                                    <li><a
+                                                            href="{{ route('product.Index', $category->id) }}">{{ $category->category_title }}</a>
+                                                    </li>
 
                                                 @endforeach
-                                                 <li><a href="{{route('product.Index','0')}}">Tüm Ürünler</a></li>
+                                                <li><a href="{{ route('product.Index', '0') }}">Tüm Ürünler</a></li>
                                             </ul>
                                         </li>
 
@@ -189,10 +204,10 @@
 
                     <div class="search-block" style="display: none;">
                         <form action="{{ route('search') }}" method="GET">
-                        <label for="search-field" class="w-100 mb-0">
-                            <input type="text" class="form-control" name="search" id="search-field"
-                                placeholder="Type what you want and enter">
-                        </label>
+                            <label for="search-field" class="w-100 mb-0">
+                                <input type="text" class="form-control" name="search" id="search-field"
+                                    placeholder="Type what you want and enter">
+                            </label>
                         </form>
                         <span class="search-close">&times;</span>
                     </div><!-- Site search end -->
@@ -211,21 +226,27 @@
                     <div class="row justify-content-between">
                         <div class="col-lg-4 col-md-6 footer-widget footer-about">
                             <h3 class="widget-title">About Us</h3>
-                            <img loading="lazy" class="footer-logo" src="images/footer-logo.png" alt="Constra">
+                             <strong class="logo-lg text-center " ><b class="text-warning" style="font-size: 2.0rem;">MONOMETRE </b> YAPI</strong>
+                             <br>
+                             <br>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci done
                                 idunt ut
                                 labore et dolore magna aliqua.</p>
                             <div class="footer-social">
                                 <ul>
-                                    <li><a href="https://facebook.com/themefisher" aria-label="Facebook"><i
-                                                class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="https://twitter.com/themefisher" aria-label="Twitter"><i
-                                                class="fab fa-twitter"></i></a>
-                                    </li>
-                                    <li><a href="https://instagram.com/themefisher" aria-label="Instagram"><i
-                                                class="fab fa-instagram"></i></a></li>
-                                    <li><a href="https://github.com/themefisher" aria-label="Github"><i
-                                                class="fab fa-github"></i></a></li>
+                                     <li><a title="Facebook" target="_blank" href="https://facebbok.com">
+                                                    <span class="social-icon"><i class="fab fa-facebook-f"></i></span>
+                                                </a></li>
+                                               <li> <a title="Twitter" target="_blank" href="https://twitter.com">
+                                                    <span class="social-icon"><i class="fab fa-twitter"></i></span>
+                                                </a></li>
+                                               <li> <a title="Instagram" target="_blank" href="https://instagram.com">
+                                                    <span class="social-icon"><i class="fab fa-instagram"></i></span>
+                                                </a></li>
+                                              <li>  <a title="Youtube" target="_blank" href="https://youtube.com/">
+                                                    <span class="social-icon"><i class="fab fa-youtube"></i></span>
+                                                </a></li>
+
                                 </ul>
                             </div><!-- Footer social end -->
                         </div><!-- Col end -->
@@ -243,13 +264,24 @@
                         </div><!-- Col end -->
 
                         <div class="col-lg-3 col-md-6 mt-5 mt-lg-0 footer-widget">
-                            <h3 class="widget-title">Services</h3>
-                            <ul class="list-arrow">
-                                <li><a href="service-single.html">Pre-Construction</a></li>
-                                <li><a href="service-single.html">General Contracting</a></li>
-                                <li><a href="service-single.html">Construction Management</a></li>
-                                <li><a href="service-single.html">Design and Build</a></li>
-                                <li><a href="service-single.html">Self-Perform Construction</a></li>
+                            <h3 class="widget-title">Ürünler</h3>
+                            <ul class="list-arrow">@php
+                                $catsay=0;
+                            @endphp
+                                @foreach ($cat as $category)
+
+                                    <li><a
+                                            href="{{ route('product.Index', $category->id) }}">{{ $category->category_title }}</a>
+                                    </li>
+@if($catsay==4)
+    @break
+@endif
+@php
+    $catsay++;
+@endphp
+                                @endforeach
+                                  <li><a href="{{ route('product.Index', '0') }}">Tüm Ürünler</a></li>
+
                             </ul>
                         </div><!-- Col end -->
                     </div><!-- Row end -->
@@ -262,21 +294,25 @@
                         <div class="col-md-6">
                             <div class="copyright-info">
                                 <span>Copyright &copy; <script>
-                                        document.write(new Date().getFullYear())
+                                        document.write(new Date().getFullYear());
 
-                                    </script>, Designed &amp; Developed by <a
-                                        href="https://themefisher.com">Themefisher</a></span>
+                                    </script>, Designed by <a
+                                        href="https://themefisher.com">Themefisher</a> &amp; Developed by MORADCHALABY </span>
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="footer-menu text-center text-md-right">
                                 <ul class="list-unstyled mb-0">
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="team.html">Our people</a></li>
-                                    <li><a href="faq.html">Faq</a></li>
-                                    <li><a href="news-left-sidebar.html">Blog</a></li>
-                                    <li><a href="pricing.html">Pricing</a></li>
+                                    <li><a href="{{ route('home.Index') }}">Anasayfa</a></li>
+                                    <li><a href="{{ route('blog.Index') }}">Blog</a></li>
+
+                                        @foreach ($slug as $page)
+
+
+                                            <li><a href="/page/{{ $page->page_slug }}">{{ $page->page_title }}</a>
+                                            </li>
+                                        @endforeach
                                 </ul>
                             </div>
                         </div>

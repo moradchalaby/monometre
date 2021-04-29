@@ -249,7 +249,10 @@ desired effect
                 Kurumsal Web Yazılımları
             </div>
             <!-- Default to the left -->
-            <strong>Copyright &copy; 2021 <a href="#">MORADCHALABY</a>.</strong> All rights reserved.
+            <strong>Copyright &copy; <script>
+                                        document.write(new Date().getFullYear());
+
+                                    </script> <a href="#">MORADCHALABY</a>.</strong> All rights reserved.
         </footer>
 
 
