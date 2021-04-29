@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Brands;
+use App\Categories;
 use Illuminate\Support\Str;
 
 
@@ -18,6 +19,7 @@ class BrandController extends Controller
     public function index()
     {
         //
+        $data['category'] = Categories::all();
         $data['brand'] = Brands::all()->sortBy('brand_must');
         return view('backend.brands.index', compact('data'));
     }
@@ -30,7 +32,8 @@ class BrandController extends Controller
     public function create()
     {
         //
-        return view('backend.brands.create');
+        $category = Categories::all();
+        return view('backend.brands.create')->with('category', $category);
     }
 
     /**
@@ -78,6 +81,7 @@ class BrandController extends Controller
             //"brand_slug" => $slug,
             "brand_url" => $request->brand_url,
             "brand_file" => $file_name,
+            "brand_category" => $request->brand_category,
            // "brand_content" => $request->brand_content,
             "brand_status" => $request->brand_status
         ]);
@@ -107,8 +111,10 @@ class BrandController extends Controller
      */
     public function edit($id)
     {
+        $category = Categories::all();
+
         $brands = Brands::where('id', $id)->first();
-        return view('backend.brands.edit')->with('brands', $brands);
+        return view('backend.brands.edit')->with('brands', $brands)->with('category', $category);
     }
 
     /**
@@ -158,6 +164,7 @@ class BrandController extends Controller
 
         $brand = Brands::where('id', $id)->update([
             "brand_title" => $request->brand_title,
+            "brand_category" => $request->brand_category,
             //"brand_slug" => $slug,
             "brand_url" => $request->brand_url,
             "brand_file" => $file_name,

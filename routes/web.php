@@ -68,7 +68,7 @@ Route::namespace('Frontend')->group(
 
         //BLOG
         Route::get('/blog', 'BlogController@index')->name('blog.Index');
-        Route::get('/blog/{slug}', 'BlogController@detail')->name('blog.Detail');
+        Route::get('/blog/detail/{slug}', 'BlogController@detail')->name('blog.Detail');
 
         //PRODUCT
         Route::get('/product/{id}', 'ProductController@index')->name('product.Index');
@@ -77,6 +77,7 @@ Route::namespace('Frontend')->group(
         //PAGE
 
         Route::get('/page/{slug}', 'PageController@detail')->name('page.Detail');
+        Route::get('/search/', 'PostsController@search') -> name('search');
 
 
     }

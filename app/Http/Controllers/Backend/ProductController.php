@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Brands;
 use App\Categories;
 use App\Http\Controllers\Controller;
 use App\Products;
@@ -18,6 +19,7 @@ class ProductController extends Controller
     {
         //
         $data['category']=Categories::all();
+        $data['brand'] = Brands::all();
         $data['product'] = Products::all()->sortBy('product_must');
 
 
@@ -32,8 +34,9 @@ class ProductController extends Controller
     public function create()
     {
         //
-        $category = Categories::all();
-        return view('backend.products.create')->with('category', $category);
+        $data['category'] = Categories::all();
+        $data['brand'] = Brands::all();
+        return view('backend.products.create', compact('data'));
     }
 
     /**
@@ -81,6 +84,7 @@ class ProductController extends Controller
             "product_slug" => $slug,
             "product_category" => $request->product_category,
             "product_price" => $request->product_price,
+            "product_brand" => $request->product_brand,
             "product_stock" => $request->product_stock,
             "product_file" => $file_name,
             "product_content" => $request->product_content,
@@ -112,9 +116,10 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $category=Categories::all();
+        $data['category']=Categories::all();
+        $data['brand'] = Brands::all();
         $products = Products::where('id', $id)->first();
-        return view('backend.products.edit')->with('products', $products)->with('category',$category);
+        return view('backend.products.edit',compact('data'))->with('products', $products);;
     }
 
     /**
@@ -167,6 +172,7 @@ class ProductController extends Controller
             "product_slug" => $slug,
             "product_category" => intval($request->product_category),
             "product_price" => $request->product_price,
+            "product_brand" => $request->product_brand,
             "product_stock" => $request->product_stock,
             "product_file" => $file_name,
             "product_content" => $request->product_content,

@@ -18,6 +18,7 @@ class CreateProductsTable extends Migration
             $table->timestamp('created_at')->nullable()->useCurrent();
             $table->timestamp('update_at')->nullable()->useCurrent();
             $table->integer('product_category')->nullable();
+            $table->integer('product_brand')->nullable();
             $table->string('product_title')->nullable();
             $table->string('product_slug')->nullable();
             $table->string('product_file')->nullable();

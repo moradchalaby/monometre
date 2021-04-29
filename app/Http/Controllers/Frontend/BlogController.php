@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Blogs;
 use App\Http\Controllers\Controller;
+use App\Products;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -21,4 +22,5 @@ class BlogController extends Controller
         $blog=Blogs::where('blog_slug',$slug)->first();
         return view('frontend.blog.detail', compact('blog','blogList'));
     }
+
 }

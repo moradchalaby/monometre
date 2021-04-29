@@ -38,41 +38,55 @@
                         </div>
                     </div><!-- Page slider end -->
                 </div><!-- Slider col end -->
-<div class="col-lg-4">
+                <div class="col-lg-4">
 
-            <div class="sidebar sidebar-right">
-                <div class="widget recent-posts">
-                    <h3 class="widget-title">Önerimiz</h3>
-                    <ul class="list-unstyled">
-                        @foreach ($productList as $products)
-
-
-                            <li class="d-flex align-items-center">
-                                <div class="posts-thumb">
-                                    <a href="#"><img loading="lazy" alt="img"
-                                            src="/images/products/{{ $products->product_file }}"></a>
-                                </div>
-                                <div class="post-info">
-                                    <h4 class="entry-title">
-                                        <a
-                                            href="{{ route('product.Detail', $products->id) }}">{{ $products->product_title }}</a>
-                                    </h4>
-                                </div>
-                            </li><!-- 1st post end-->
-
-                        @endforeach
+                    <div class="sidebar sidebar-right">
+                        <div class="widget recent-posts">
+                            <h3 class="widget-title">Önerimiz</h3>
+                            <ul class="list-unstyled">
+                                @foreach ($productList as $products)
 
 
+                                    <li class="d-flex align-items-center">
+                                        <div class="posts-thumb">
+                                            <a href="#"><img loading="lazy" alt="img"
+                                                    src="/images/products/{{ $products->product_file }}"></a>
+                                        </div>
+                                        <div class="post-info">
+                                            <h4 class="entry-title">
+                                                <a
+                                                    href="{{ route('product.Detail', $products->id) }}">{{ $products->product_title }}</a>
+                                            </h4>
+                                        </div>
+                                    </li><!-- 1st post end-->
 
-                    </ul>
+                                @endforeach
 
-                </div><!-- Recent post end -->
 
-            </div><!-- Sidebar end -->
-        </div><!-- Sidebar Col end -->
+
+                            </ul>
+
+                        </div><!-- Recent post end -->
+
+                    </div><!-- Sidebar end -->
+                </div><!-- Sidebar Col end -->
+
                 <div class="col-lg-12 mt-5 ">
+                    <h2 class="column-title mrt-0">Genel Bakış</h2>
+                    <br>
+                    <h4 class="column-title mrt-0">Marka: @foreach ($data['brand']->where('id', $product->product_brand) as $brand)
+                            <img loading="lazy" class="img-fluid" src="/images/brands/{{ $brand->brand_file }}"
+                                alt="project-image" />
+                        @endforeach </h4>
+                    <br>
 
-                    <h3 class="column-title mrt-0">Genel Bakış</h3>
+                    <h4 class="column-title mrt-0">Fiyat: {{ $product->product_price }} ₺</h4>
+                    <br>
+                    <h4 class="column-title mrt-0">Stok: <strong
+                            class=" {{ $product->product_stock > 0 ? 'text-success' : 'text-danger' }}">{{ $product->product_stock > 0 ? 'Var' : 'Yok' }}</strong>
+                    </h4>
+                    <br>
+
                     <p>{!! $product->product_content !!}</p>
 
 
@@ -86,7 +100,6 @@
 
 
 
-    </section><!-- Main container end -->
 
 @endsection
 

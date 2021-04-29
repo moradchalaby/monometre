@@ -58,7 +58,20 @@ Marka Düzenleme
         </div>
     </div>
     </div> --}}
+<div class="form-group">
+        <label for="">Kategori</label>
+    <div class="row">
+        <div class="col-xs-12">
+            <select name="brand_category" class="form-control" id="">
+                @foreach ($category as $categ)
 
+
+                <option value="{{$categ->id}}" {{$categ->id==$brands->brand_category ? "selected":""}}>{{$categ->category_title}}</option>
+                @endforeach
+            </select>
+        </div>
+    </div>
+    </div>
  <div class="form-group">
         <label for="">Marka Web Site Adresi</label>
     <div class="row">

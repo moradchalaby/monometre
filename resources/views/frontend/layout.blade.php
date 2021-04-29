@@ -188,10 +188,12 @@
                     </div><!-- Search end -->
 
                     <div class="search-block" style="display: none;">
+                        <form action="{{ route('search') }}" method="GET">
                         <label for="search-field" class="w-100 mb-0">
-                            <input type="text" class="form-control" id="search-field"
+                            <input type="text" class="form-control" name="search" id="search-field"
                                 placeholder="Type what you want and enter">
                         </label>
+                        </form>
                         <span class="search-close">&times;</span>
                     </div><!-- Site search end -->
                 </div>

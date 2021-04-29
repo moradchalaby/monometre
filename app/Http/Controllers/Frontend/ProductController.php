@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Brands;
 use App\Categories;
 use App\Products;
 use App\Http\Controllers\Controller;
@@ -24,8 +25,10 @@ class ProductController extends Controller
 
     public function detail($id)
     {
+        $data['category'] = Categories::all();
+        $data['brand'] = Brands::all();
         $productList = Products::all()->sortby('product_must')->slice(0,4);
         $product=Products::where('id',$id)->first();
-        return view('frontend.product.detail', compact('product','productList'));
+        return view('frontend.product.detail', compact('product','productList','data'));
     }
 }

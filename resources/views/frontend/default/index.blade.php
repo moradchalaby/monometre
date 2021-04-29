@@ -4,6 +4,8 @@
 
 @section('content')
     {{-- SLİDER START --}}
+
+
     <div class="banner-carousel banner-carousel-1 mb-0">
         @php
             $slidersay = 0;
@@ -290,6 +292,7 @@
 
         <!--/ Container end -->
     </section><!-- Project area end -->
+
 
 
 

@@ -18,6 +18,7 @@
                             <th>Görsel</th>
                             <th>Başlık</th>
                             <th>Kategori</th>
+                            <th>Marka</th>
                             <th>Fiyat</th>
                             <th>Stok</th>
                             <th></th>
@@ -31,6 +32,11 @@
                                 @foreach ($data['category']->where('id',$product->product_category) as $category)
 
                                 <td>{{ $category->category_title}}</td>
+
+                                  @endforeach
+                                  @foreach ($data['brand'] as $brand)
+
+                                <td>{{ $brand->brand_title}}</td>
 
                                   @endforeach
                                 <td>{{ $product['product_price'] }} ₺</td>

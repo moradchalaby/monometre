@@ -30,6 +30,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas metus et ma
             [
                 [
                     'product_category'=>1,
+                    'product_brand' => 1,
                     'product_title' => 'Ürün Title 01',
                     'product_slug' => 'urun-title-01',
                     'product_file' => '60837c51a1190.png',
@@ -42,6 +43,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas metus et ma
                 ],
                 [
                     'product_category' => 2,
+                    'product_brand' => 2,
                     'product_title' => 'Ürün Title 01',
                     'product_slug' => 'urun-title-01',
                     'product_file' => '60837c51a1190.png',
@@ -53,6 +55,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas metus et ma
                 ],
                 [
                     'product_category' => 3,
+                    'product_brand' => 3,
                     'product_title' => 'Ürün Title 01',
                     'product_slug' => 'urun-title-01',
                     'product_file' => '60837c51a1190.png',
@@ -64,6 +67,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas metus et ma
                 ],
                 [
                     'product_category' => 4,
+                    'product_brand' => 4,
                     'product_title' => 'Ürün Title 01',
                     'product_slug' => 'urun-title-01',
                     'product_file' => '60837c51a1190.png',
@@ -75,6 +79,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas metus et ma
                 ],
                 [
                     'product_category' => 5,
+                    'product_brand' => 5,
                     'product_title' => 'Ürün Title 01',
                     'product_slug' => 'urun-title-01',
                     'product_file' => '60837c51a1190.png',
@@ -86,6 +91,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas metus et ma
                 ],
                 [
                     'product_category' => 6,
+                    'product_brand' => 6,
                     'product_title' => 'Ürün Title 01',
                     'product_slug' => 'urun-title-01',
                     'product_file' => '60837c51a1190.png',

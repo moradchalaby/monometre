@@ -48,19 +48,6 @@
         </div><!-- Container end -->
     </section><!-- Main container end -->
 
-
-    <section id="facts" class="facts-area" style="background-color: #ffb90821;"">
-      <div class=" container">
-
-        <div class="row text-center">
-           <p>ADS</p>
-            <!-- Facts end -->
-        </div>
-        <!--/ Content row end -->
-        </div>
-        <!--/ Container end -->
-    </section><!-- Facts end -->
-
     <section class="content">
         <div class="container">
             <div class="row">
@@ -71,47 +58,17 @@
                     <h3 class="column-title text-center">Markalar</h3>
 
                     <div class="row all-clients">
-                        <div class="col-sm-4 col-6">
+
+                        @foreach($brands as $brand)
+                            <div class="col-sm-4 col-6">
                             <figure class="clients-logo">
-                                <a href="#!"><img loading="lazy" class="img-fluid" src="images/clients/client1.png"
-                                        alt="clients-logo" /></a>
+                                <a href="#!"><img loading="lazy" class="img-fluid" src="/images/brands/{{$brand->brand_file}}"
+                                        alt="{{$brand->brand_slug}}-logo" /></a>
                             </figure>
                         </div><!-- Client 1 end -->
+                        @endforeach
 
-                        <div class="col-sm-4 col-6">
-                            <figure class="clients-logo">
-                                <a href="#!"><img loading="lazy" class="img-fluid" src="images/clients/client2.png"
-                                        alt="clients-logo" /></a>
-                            </figure>
-                        </div><!-- Client 2 end -->
 
-                        <div class="col-sm-4 col-6">
-                            <figure class="clients-logo">
-                                <a href="#!"><img loading="lazy" class="img-fluid" src="images/clients/client3.png"
-                                        alt="clients-logo" /></a>
-                            </figure>
-                        </div><!-- Client 3 end -->
-
-                        <div class="col-sm-4 col-6">
-                            <figure class="clients-logo">
-                                <a href="#!"><img loading="lazy" class="img-fluid" src="images/clients/client4.png"
-                                        alt="clients-logo" /></a>
-                            </figure>
-                        </div><!-- Client 4 end -->
-
-                        <div class="col-sm-4 col-6">
-                            <figure class="clients-logo">
-                                <a href="#!"><img loading="lazy" class="img-fluid" src="images/clients/client5.png"
-                                        alt="clients-logo" /></a>
-                            </figure>
-                        </div><!-- Client 5 end -->
-
-                        <div class="col-sm-4 col-6">
-                            <figure class="clients-logo">
-                                <a href="#!"><img loading="lazy" class="img-fluid" src="images/clients/client6.png"
-                                        alt="clients-logo" /></a>
-                            </figure>
-                        </div><!-- Client 6 end -->
 
                     </div><!-- Clients row end -->
 

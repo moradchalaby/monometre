@@ -43,10 +43,25 @@ Yeni Ürün Ekle
     <div class="row">
         <div class="col-xs-12">
             <select name="product_category" class="form-control" id="">
-                @foreach ($category as $categ)
+                @foreach ($data['category'] as $category)
 
 
-                <option value="{{$categ->id}}" >{{$categ->category_title}}</option>
+                <option value="{{$category->id}}" >{{$category->category_title}}</option>
+                @endforeach
+            </select>
+        </div>
+    </div>
+    </div>
+
+    <div class="form-group">
+        <label for="">Marka</label>
+    <div class="row">
+        <div class="col-xs-12">
+            <select name="product_brand" class="form-control" id="">
+                @foreach ($data['brand'] as $brand)
+
+
+                <option value="{{$brand->id}}" >{{$brand->brand}}</option>
                 @endforeach
             </select>
         </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Brands;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Pages;
@@ -14,6 +15,7 @@ class PageController extends Controller
         $sliders=Sliders::all();
         $pageList = Pages::all()->sortby('page_must')->slice(0, 4);;
         $page = Pages::where('page_slug', $slug)->first();
-        return view('frontend.page.detail', compact('page', 'pageList','sliders'));
+        $brands = Brands::all()->sortby('brand_must');
+        return view('frontend.page.detail', compact('page', 'pageList','sliders','brands'));
     }
 }

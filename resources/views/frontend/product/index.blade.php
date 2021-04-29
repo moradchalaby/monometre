@@ -47,11 +47,9 @@
         </div>
       </div>
       <div class="card-footer text-muted {{$product->product_stock ==0 ? 'text-danger' : 'text-light'}}  bg-primary">
-   @if ($product->product_stock>0)
-          <strong class="text-light"> Stok: {{$product->product_stock}}</strong>
-       @else
-           <strong class="text-danger"> Stok Yok</strong>
-       @endif
+
+          <strong class=" {{$product->product_stock >0 ? 'text-light' : 'text-danger'}}"> Stok: {{$product->product_stock >0 ? 'Var' : 'Yok'}}</strong>
+
        @foreach ($data['category']->where('id',$product->product_category) as $category)
 
                                 <a class="text-light float-right" href="{{route('product.Index', $category->id)}}">{{ $category->category_title}}</a>

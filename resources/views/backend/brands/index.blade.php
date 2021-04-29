@@ -31,6 +31,11 @@ Marka Url
                <tr id="item-{{$brand->id}}">
 <td  width="150" class="sortable"><img class="img-thumbnail" width="150"  src="/images/brands/{{$brand->brand_file}}"></td>
                    <td >{{$brand['brand_title']}}</td>
+                    @foreach ($data['category']->where('id',$brand->brand_category) as $category)
+
+                                <td>{{ $category->category_title}}</td>
+
+                                  @endforeach
 <td >{{$brand['brand_url']}}</td>
                    <td width="5"><a href="{{route('brand.edit',$brand->id)}}"><i class="fas fa-pencil-alt"></i></a>
                        </td>
