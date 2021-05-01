@@ -13,21 +13,21 @@ class ProductController extends Controller
     public function index($id)
     {
         if ($id!=0) {
-            $data['product'] = Products::all()->where('product_category', $id);
+            $data['product'] = Products::all()->where('product_status', 1)->where('product_category', $id);
         }else {
 
-            $data['product'] = Products::all()->sortby('product_must');
+            $data['product'] = Products::all()->where('product_status', 1)->sortby('product_must');
         }
 
-        $data['category'] = Categories::all();
+        $data['category'] = Categories::all()->where('category_status', 1);
         return view('frontend.product.index', compact('data'));
     }
 
     public function detail($id)
     {
-        $data['category'] = Categories::all();
-        $data['brand'] = Brands::all();
-        $productList = Products::all()->sortby('product_must')->slice(0,4);
+        $data['category'] = Categories::all()->where('category_status', 1);
+        $data['brand'] = Brands::all()->where('brand_status', 1);
+        $productList = Products::all()->where('product_status', 1)->sortby('product_must')->slice(0,4);
         $product=Products::where('id',$id)->first();
         return view('frontend.product.detail', compact('product','productList','data'));
     }

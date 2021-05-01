@@ -79,6 +79,12 @@ Route::namespace('Frontend')->group(
         Route::get('/page/{slug}', 'PageController@detail')->name('page.Detail');
         Route::get('/search/', 'PostsController@search') -> name('search');
 
+        //CONTACT
+        Route::get('/contact', 'DefaultController@contact')->name('contact.Detail');
+        Route::post('/contact', 'DefaultController@sendMail');
+
+
+
 
     }
 );

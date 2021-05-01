@@ -19,11 +19,22 @@ class Share
     public function handle($request, Closure $next)
     {
 
+
+
+        $data['settings']=Settings::all()->where('settings_status',1);
+
+        foreach ($data['settings'] as $key ) {
+            $settings[$key->settings_key]=$key->settings_value;
+        }
+
         $cat = Categories::all()->sortby('category_must');
         $page = Pages::all()->sortby('page_must')->slice(0, 3);
-        $logo=Settings::all()->where('settings_key','logo')->first();
+
+
+
+
         $settings['slug']=$page;
-        $settings['logo']=$logo;
+
         $settings['cat'] = $cat;
         View::share($settings);
         return $next($request);

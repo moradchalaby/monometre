@@ -1,7 +1,5 @@
 @extends('frontend.layout')
 
-@section('title', "AnaSayfa BAŞLIĞI")
-
 @section('content')
 
 <div id="banner-area" class="banner-area" style="background-image:url(/images/blogs/banner3.jpg)">
@@ -41,7 +39,7 @@
 
               <div class="ts-service-info">
 
-                  <h3 class="service-box-title"><a href="service-single.html">{{$blog->blog_title}}</a></h3>
+                  <h3 class="service-box-title"><a href="{{route('blog.Detail',$blog->blog_slug)}}">{{$blog->blog_title}}</a></h3>
                   <span class="post-item-date">
                       <i class="fa fa-clock-o"></i> {{date_format(date_create($blog->created_at),'l jS F Y')}}
                     </span>

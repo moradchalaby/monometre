@@ -11,12 +11,12 @@
     <!-- Mobile Specific Metas
 ================================================== -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Construction Html5 Template">
+    <meta name="description" content="{{ $description }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 
     <!-- Favicon
 ================================================== -->
-    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="icon" type="image/png" href="/images/settings/{{$icon}}">
 
     <!-- CSS
 ================================================== -->
@@ -50,7 +50,7 @@
                     <div class="col-lg-8 col-md-8">
                         <ul class="top-info text-center text-md-left">
                             <li><i class="fas fa-map-marker-alt"></i>
-                                <p class="info-text">9051 Constra Incorporate, USA</p>
+                                <p class="info-text"> {{ $adres . ' ' . $ilce . '/' . $il }}</p>
                             </li>
                         </ul>
                     </div>
@@ -59,17 +59,17 @@
                     <div class="col-lg-4 col-md-4 top-social text-center text-md-right">
                         <ul class="list-unstyled">
                             <li>
-                                <a title="Facebook" href="https://facebbok.com/themefisher.com">
+                                <a title="Facebook" target="_blank" href="{{ $facebook }}">
                                     <span class="social-icon"><i class="fab fa-facebook-f"></i></span>
                                 </a>
-                                <a title="Twitter" href="https://twitter.com/themefisher.com">
+                                <a title="Twitter" target="_blank" href="{{ $twitter }}">
                                     <span class="social-icon"><i class="fab fa-twitter"></i></span>
                                 </a>
-                                <a title="Instagram" href="https://instagram.com/themefisher.com">
+                                <a title="Instagram" target="_blank" href="{{ $instagram }}">
                                     <span class="social-icon"><i class="fab fa-instagram"></i></span>
                                 </a>
-                                <a title="Linkdin" href="https://github.com/themefisher.com">
-                                    <span class="social-icon"><i class="fab fa-github"></i></span>
+                                <a title="Youtube" target="_blank" href="{{ $youtube }}">
+                                    <span class="social-icon"><i class="fab fa-youtube"></i></span>
                                 </a>
                             </li>
                         </ul>
@@ -87,9 +87,10 @@
                 <div class="container">
                     <div class="logo-area">
                         <div class="row align-items-center">
-                            <div class="logo col-lg-3 text-center text-lg-left mb-3 mb-md-5 mb-lg-0">
+                            <div class="logo col-lg-3 text-center text-lg-right mb-3 mb-md-5 mb-lg-0">
                                 <a class="d-block" href="{{ route('home.Index') }}">
-                                    <strong class="logo-lg text-center " ><b class="text-warning" style="font-size: 2.0rem;">MONOMETRE </b> YAPI</strong>
+                                    <strong class="logo-lg text-center "><b class="text-warning"
+                                            style="font-size: 2.0rem;">MONOMETRE </b> YAPI</strong>
 
                                 </a>
                             </div><!-- logo end -->
@@ -100,7 +101,7 @@
                                         <div class="info-box">
                                             <div class="info-box-content">
                                                 <p class="info-box-title">Bizi Ara</p>
-                                                <p class="info-box-subtitle">(+9) 847-291-4353</p>
+                                                <p class="info-box-subtitle">{{ $phone_gsm }}</p>
                                             </div>
                                         </div>
                                     </li>
@@ -108,7 +109,7 @@
                                         <div class="info-box">
                                             <div class="info-box-content">
                                                 <p class="info-box-title">Bize Email At</p>
-                                                <p class="info-box-subtitle">office@Constra.com</p>
+                                                <p class="info-box-subtitle">{{ $mail }}</p>
                                             </div>
                                         </div>
                                     </li>
@@ -116,23 +117,23 @@
                                         <div class="info-box last">
                                             <div class="info-box-content">
                                                 <p class="info-box-title">Bizi Takip Et</p>
-                                                <a title="Facebook" target="_blank" href="https://facebbok.com">
+                                                <a title="Facebook" target="_blank" href="{{ $facebook }}">
                                                     <span class="social-icon"><i class="fab fa-facebook-f"></i></span>
                                                 </a>
-                                                <a title="Twitter" target="_blank" href="https://twitter.com">
+                                                <a title="Twitter" target="_blank" href="{{ $twitter }}">
                                                     <span class="social-icon"><i class="fab fa-twitter"></i></span>
                                                 </a>
-                                                <a title="Instagram" target="_blank" href="https://instagram.com">
+                                                <a title="Instagram" target="_blank" href="{{ $instagram }}">
                                                     <span class="social-icon"><i class="fab fa-instagram"></i></span>
                                                 </a>
-                                                <a title="Youtube" target="_blank" href="https://youtube.com/">
+                                                <a title="Youtube" target="_blank" href="{{ $youtube }}">
                                                     <span class="social-icon"><i class="fab fa-youtube"></i></span>
                                                 </a>
                                             </div>
                                         </div>
                                     </li>
                                     <li class="header-get-a-quote">
-                                        <a class="btn btn-primary" href="contact.html">İletişim
+                                        <a class="btn btn-primary" href="{{route('contact.Detail')}}">İletişim
                                         </a>
                                     </li>
                                 </ul><!-- Ul end -->
@@ -184,11 +185,12 @@
 
                                                 @endforeach
                                                 <li><a href="{{ route('product.Index', '0') }}">Tüm Ürünler</a></li>
+
                                             </ul>
                                         </li>
 
-
-
+                                        <li class="nav-item"><a class="nav-link"
+                                                href="{{ route('contact.Detail') }}">İletişim</a></li>
                                         {{-- <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li> --}}
                                     </ul>
                                 </div>
@@ -225,62 +227,54 @@
                 <div class="container">
                     <div class="row justify-content-between">
                         <div class="col-lg-4 col-md-6 footer-widget footer-about">
-                            <h3 class="widget-title">About Us</h3>
-                             <strong class="logo-lg text-center " ><b class="text-warning" style="font-size: 2.0rem;">MONOMETRE </b> YAPI</strong>
-                             <br>
-                             <br>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci done
-                                idunt ut
-                                labore et dolore magna aliqua.</p>
+                            <h3 class="widget-title">Hakkımızda</h3>
+                            <strong class="logo-lg text-center "><b class="text-warning"
+                                    style="font-size: 2.0rem;">MONOMETRE </b> YAPI</strong>
+                            <br>
+                            <br>
+                            <p>{{ $description }}</p>
+
+                        </div><!-- Col end -->
+
+                        <div class="col-lg-4 col-md-6 footer-widget mt-5 mt-md-0">
+                            <h3 class="widget-title">Sosyal Medya</h3>
                             <div class="footer-social">
                                 <ul>
-                                     <li><a title="Facebook" target="_blank" href="https://facebbok.com">
-                                                    <span class="social-icon"><i class="fab fa-facebook-f"></i></span>
-                                                </a></li>
-                                               <li> <a title="Twitter" target="_blank" href="https://twitter.com">
-                                                    <span class="social-icon"><i class="fab fa-twitter"></i></span>
-                                                </a></li>
-                                               <li> <a title="Instagram" target="_blank" href="https://instagram.com">
-                                                    <span class="social-icon"><i class="fab fa-instagram"></i></span>
-                                                </a></li>
-                                              <li>  <a title="Youtube" target="_blank" href="https://youtube.com/">
-                                                    <span class="social-icon"><i class="fab fa-youtube"></i></span>
-                                                </a></li>
+                                    <li><a title="Facebook" target="_blank" href="{{ $facebook }}">
+                                            <span class="social-icon"><i class="fab fa-facebook-f"></i></span>
+                                        </a></li>
+                                    <li> <a title="Twitter" target="_blank" href="{{ $twitter }}">
+                                            <span class="social-icon"><i class="fab fa-twitter"></i></span>
+                                        </a></li>
+                                    <li> <a title="Instagram" target="_blank" href="{{ $instagram }}">
+                                            <span class="social-icon"><i class="fab fa-instagram"></i></span>
+                                        </a></li>
+                                    <li> <a title="Youtube" target="_blank" href="{{ $youtube }}">
+                                            <span class="social-icon"><i class="fab fa-youtube"></i></span>
+                                        </a></li>
 
                                 </ul>
                             </div><!-- Footer social end -->
                         </div><!-- Col end -->
 
-                        <div class="col-lg-4 col-md-6 footer-widget mt-5 mt-md-0">
-                            <h3 class="widget-title">Working Hours</h3>
-                            <div class="working-hours">
-                                We work 7 days a week, every day excluding major holidays. Contact us if you have an
-                                emergency, with our
-                                Hotline and Contact form.
-                                <br><br> Monday - Friday: <span class="text-right">10:00 - 16:00 </span>
-                                <br> Saturday: <span class="text-right">12:00 - 15:00</span>
-                                <br> Sunday and holidays: <span class="text-right">09:00 - 12:00</span>
-                            </div>
-                        </div><!-- Col end -->
-
                         <div class="col-lg-3 col-md-6 mt-5 mt-lg-0 footer-widget">
                             <h3 class="widget-title">Ürünler</h3>
                             <ul class="list-arrow">@php
-                                $catsay=0;
+                                $catsay = 0;
                             @endphp
                                 @foreach ($cat as $category)
 
                                     <li><a
                                             href="{{ route('product.Index', $category->id) }}">{{ $category->category_title }}</a>
                                     </li>
-@if($catsay==4)
-    @break
-@endif
-@php
-    $catsay++;
-@endphp
+                                    @if ($catsay == 4)
+                                    @break
+                                @endif
+                                @php
+                                    $catsay++;
+                                @endphp
                                 @endforeach
-                                  <li><a href="{{ route('product.Index', '0') }}">Tüm Ürünler</a></li>
+                                <li><a href="{{ route('product.Index', '0') }}">Tüm Ürünler</a></li>
 
                             </ul>
                         </div><!-- Col end -->
@@ -296,8 +290,8 @@
                                 <span>Copyright &copy; <script>
                                         document.write(new Date().getFullYear());
 
-                                    </script>, Designed by <a
-                                        href="https://themefisher.com">Themefisher</a> &amp; Developed by MORADCHALABY </span>
+                                    </script>, Designed by <a href="https://themefisher.com">Themefisher</a> &amp;
+                                    Developed by MORADCHALABY </span>
                             </div>
                         </div>
 
@@ -307,12 +301,13 @@
                                     <li><a href="{{ route('home.Index') }}">Anasayfa</a></li>
                                     <li><a href="{{ route('blog.Index') }}">Blog</a></li>
 
-                                        @foreach ($slug as $page)
+                                    @foreach ($slug as $page)
 
 
-                                            <li><a href="/page/{{ $page->page_slug }}">{{ $page->page_title }}</a>
-                                            </li>
-                                        @endforeach
+                                        <li><a href="/page/{{ $page->page_slug }}">{{ $page->page_title }}</a>
+                                        </li>
+                                    @endforeach
+                                    <li><a href="{{ route('contact.Detail') }}">İletişim</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -355,7 +350,7 @@
         </script>
         <!-- Google Map Plugin-->
         <script src="/frontend/plugins/google-map/map.js" defer></script>
-
+        <script src="/js/custom.js"></script>
         <!-- Template custom -->
         <script src="/frontend/js/script.js"></script>
         <script>

@@ -11,15 +11,15 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $data['blog'] = Blogs::all()->sortby('blog_must');
+        $data['blog'] = Blogs::all()->where('blog_status',1)->sortby('blog_must');
 
         return view('frontend.blog.index', compact('data'));
     }
 
     public function detail($slug)
     {
-        $blogList = Blogs::all()->sortby('blog_must')->slice(0,4);
-        $blog=Blogs::where('blog_slug',$slug)->first();
+        $blogList = Blogs::all()->where('blog_status', 1)->sortby('blog_must')->slice(0,4);
+        $blog=Blogs::where('blog_slug',$slug)->where('blog_status', 1)->first();
         return view('frontend.blog.detail', compact('blog','blogList'));
     }
 

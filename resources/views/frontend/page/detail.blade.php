@@ -1,6 +1,5 @@
 @extends('frontend.layout')
 
-@section('title', 'AnaSayfa BAŞLIĞI')
 
 @section('content')
 

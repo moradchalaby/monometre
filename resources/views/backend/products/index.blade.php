@@ -34,7 +34,7 @@
                                 <td>{{ $category->category_title}}</td>
 
                                   @endforeach
-                                  @foreach ($data['brand'] as $brand)
+                                  @foreach ($data['brand']->where('id',$product->product_category) as $brand)
 
                                 <td>{{ $brand->brand_title}}</td>
 

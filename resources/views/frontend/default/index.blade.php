@@ -4,17 +4,14 @@
 
 @section('content')
     {{-- SLİDER START --}}
-
+<h1 style="display: none"> {{$title}}</h1>
 
     <div class="banner-carousel banner-carousel-1 mb-0">
-        @php
-            $slidersay = 0;
-        @endphp
+
         @foreach ($data['slider'] as $slider)
 
 
 
-            @if ($slidersay == 0)
                 <div class="banner-carousel-item"
                     style="background-image:url(/images/sliders/{{ $slider->slider_file }})">
                     <div class="slider-content text-right">
@@ -25,77 +22,13 @@
                                     </h2>
 
                                     <div class="slider-description lead" data-animation-in="slideInRight">
-                                        {!! substr($slider->slider_content, 0, 100) . '...' !!}</div>
-                                    <div data-animation-in="slideInLeft">
-                                        <a href="contact.html" class="slider btn btn-primary"
-                                            aria-label="contact-with-us">Get Free Quote</a>
-                                        <a href="about.html" class="slider btn btn-primary border"
-                                            aria-label="learn-more-about-us">Learn more</a>
-                                    </div>
+                                        {!! substr($slider->slider_content, 0, 250) !!}</div>
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            @elseif($slidersay==1)
-                <div class="banner-carousel-item"
-                    style="background-image:url(/images/sliders/{{ $slider->slider_file }})">
-                    <div class="slider-content">
-                        <div class="container h-100">
-                            <div class="row align-items-center h-100">
-                                <div class="col-md-12 text-center">
-                                    <h2 class="slide-title" data-animation-in="slideInLeft">{{ $slider->slider_title }}
-                                    </h2>
-                                    <div class="slider-description lead" data-animation-in="slideInRight">
-                                        {!! substr($slider->slider_content, 0, 100) . '...' !!}</div>
-
-                                    <p data-animation-in="slideInLeft" data-duration-in="1.2">
-                                        <a href="services.html" class="slider btn btn-primary">Our Services</a>
-                                        <a href="contact.html" class="slider btn btn-primary border">Contact Now</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @elseif($slidersay==2)
-
-
-                <div class="banner-carousel-item"
-                    style="background-image:url(/images/sliders/{{ $slider->slider_file }})">
-                    <div class="slider-content text-left">
-                        <div class="container h-100">
-                            <div class="row align-items-center h-100">
-                                <div class="col-md-12">
-
-                                    <h3 class="slide-title" data-animation-in="fadeIn">{{ $slider->slider_title }}</h3>
-                                    <div class="slider-description lead" data-animation-in="slideInRight">
-                                        {!! substr($slider->slider_content, 0, 100) . '...' !!}</div>
-
-
-                                    <p data-animation-in="slideInRight">
-                                        <a href="services.html" class="slider btn btn-primary border">Our Services</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            @endif
-
-
-            @php
-                if ($slidersay <= 2) {
-                    $slidersay++;
-                } else {
-                    $slidersay = 0;
-                }
-
-            @endphp
-
-
-
 
         @endforeach
 
@@ -113,7 +46,7 @@
                     </div><!-- Col end -->
                     <div class="col-md-4 text-center text-md-right mt-3 mt-md-0">
                         <div class="call-to-action-btn">
-                            <a class="btn btn-dark" href="#">Teklif İste</a>
+                            <a class="btn btn-dark" href="{{route('contact.Detail')}}">Teklif İste</a>
                         </div>
                     </div><!-- col end -->
                 </div><!-- row end -->
@@ -176,28 +109,18 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="subscribe-call-to-acton">
-                        <h3>Can We Help?</h3>
-                        <h4>(+9) 847-291-4353</h4>
+                        <h3>Yardımcı Olalım</h3>
+                        <h4>{{$data['phone']->settings_value}}</h4>
                     </div>
                 </div><!-- Col end -->
 
                 <div class="col-lg-8">
                     <div class="ts-newsletter row align-items-center">
-                        <div class="col-md-5 newsletter-introtext">
-                            <h4 class="text-white mb-0">Newsletter Sign-up</h4>
-                            <p class="text-white">Latest updates and news</p>
+                        <div class="col-md-12 newsletter-introtext text-lg-right">
+                             <strong class="logo-lg text-center " ><b class="text-warning" style="font-size: 4.0rem;">MONOMETRE </b> YAPI</strong>
                         </div>
 
-                        <div class="col-md-7 newsletter-form">
-                            <form action="#" method="post">
-                                <div class="form-group">
-                                    <label for="newsletter-email" class="content-hidden">Newsletter Email</label>
-                                    <input type="email" name="email" id="newsletter-email"
-                                        class="form-control form-control-lg" placeholder="Your your email and hit enter"
-                                        autocomplete="off">
-                                </div>
-                            </form>
-                        </div>
+
                     </div><!-- Newsletter end -->
                 </div><!-- Col end -->
 
@@ -283,7 +206,7 @@
 
                 <div class="col-12">
                     <div class="general-btn text-center">
-                        <a class="btn btn-primary" href="projects.html">Bütün Ürünler</a>
+                        <a class="btn btn-primary" href="{{ route('product.Index', '0') }}">Bütün Ürünler</a>
                     </div>
                 </div>
 

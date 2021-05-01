@@ -1,6 +1,6 @@
 @extends('frontend.layout')
 
-@section('title', 'AnaSayfa BAŞLIĞI')
+
 
 @section('content')
 
@@ -72,7 +72,7 @@
                 </div><!-- Sidebar Col end -->
 
                 <div class="col-lg-12 mt-5 ">
-                    <h2 class="column-title mrt-0">Genel Bakış</h2>
+                    <h2 class="column-title mrt-0">{{ $product->product_title }}</h2>
                     <br>
                     <h4 class="column-title mrt-0">Marka: @foreach ($data['brand']->where('id', $product->product_brand) as $brand)
                             <img loading="lazy" class="img-fluid" src="/images/brands/{{ $brand->brand_file }}"
